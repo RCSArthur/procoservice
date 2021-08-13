@@ -30,28 +30,29 @@ namespace form_procoservice
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtSenha = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblLogin = new System.Windows.Forms.Label();
+            this.btnLogin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtEmail
             // 
-            this.textBox1.Location = new System.Drawing.Point(125, 222);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "E-mail";
-            this.textBox1.Size = new System.Drawing.Size(175, 23);
-            this.textBox1.TabIndex = 0;
+            this.txtEmail.Location = new System.Drawing.Point(125, 222);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.PlaceholderText = "E-mail";
+            this.txtEmail.Size = new System.Drawing.Size(175, 23);
+            this.txtEmail.TabIndex = 0;
             // 
-            // textBox2
+            // txtSenha
             // 
-            this.textBox2.Location = new System.Drawing.Point(125, 251);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PlaceholderText = "Senha";
-            this.textBox2.Size = new System.Drawing.Size(175, 23);
-            this.textBox2.TabIndex = 1;
+            this.txtSenha.Location = new System.Drawing.Point(125, 251);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PlaceholderText = "Senha";
+            this.txtSenha.Size = new System.Drawing.Size(175, 23);
+            this.txtSenha.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -75,15 +76,28 @@ namespace form_procoservice
             this.lblLogin.TabIndex = 3;
             this.lblLogin.Text = "Login";
             // 
+            // btnLogin
+            // 
+            this.btnLogin.BackColor = System.Drawing.Color.Snow;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLogin.Location = new System.Drawing.Point(184, 280);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.TabIndex = 4;
+            this.btnLogin.Text = "Entrar";
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
             // Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Wheat;
             this.ClientSize = new System.Drawing.Size(434, 361);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblLogin);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSenha);
+            this.Controls.Add(this.txtEmail);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
@@ -98,10 +112,11 @@ namespace form_procoservice
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblLogin;
+        private System.Windows.Forms.Button btnLogin;
     }
 }
 

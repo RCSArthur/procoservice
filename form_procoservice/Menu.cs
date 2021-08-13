@@ -10,21 +10,17 @@ using System.Windows.Forms;
 
 namespace form_procoservice
 {
-    public partial class Login : Form
+    public partial class Menu : Form
     {
-        public Login()
+        public Menu()
         {
             InitializeComponent();
         }
-
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (txtEmail.Text == "admin" && txtSenha.Text == "admin")
-            {
-                Menu menu = new Menu();
-                this.Hide();
-                menu.ShowDialog();
-            }
+            Application.Exit();
         }
     }
+
+
 }

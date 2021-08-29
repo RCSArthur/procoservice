@@ -35,24 +35,26 @@ namespace form_procoservice
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblLogin = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.btnRegistrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(125, 222);
+            this.txtEmail.Location = new System.Drawing.Point(98, 222);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PlaceholderText = "E-mail";
-            this.txtEmail.Size = new System.Drawing.Size(175, 23);
+            this.txtEmail.Size = new System.Drawing.Size(230, 23);
             this.txtEmail.TabIndex = 0;
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(125, 251);
+            this.txtSenha.Location = new System.Drawing.Point(98, 251);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PlaceholderText = "Senha";
-            this.txtSenha.Size = new System.Drawing.Size(175, 23);
+            this.txtSenha.Size = new System.Drawing.Size(230, 23);
             this.txtSenha.TabIndex = 1;
+            this.txtSenha.UseSystemPasswordChar = true;
             // 
             // pictureBox1
             // 
@@ -88,11 +90,24 @@ namespace form_procoservice
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.BackColor = System.Drawing.Color.Snow;
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRegistrar.Location = new System.Drawing.Point(184, 309);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
+            this.btnRegistrar.TabIndex = 5;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            // 
             // Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Wheat;
             this.ClientSize = new System.Drawing.Size(434, 361);
+            this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblLogin);
             this.Controls.Add(this.pictureBox1);
@@ -118,6 +133,7 @@ namespace form_procoservice
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnRegistrar;
     }
 }
 

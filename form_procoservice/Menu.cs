@@ -25,22 +25,22 @@ namespace form_procoservice
 
         private void btnHistorico_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new Historico());
         }
 
         private void btnCadastro_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new Cadastro());
         }
 
         private void btnServicos_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new Servicos());
         }
 
         private void btnOrcamento_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new Orcamento());
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -53,6 +53,28 @@ namespace form_procoservice
 
         }
 
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private Form activeForm = null;
+        private void OpenChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelChildForm.Controls.Add(childForm);
+            panelChildForm.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+
+
+
+        }
     }
 
 

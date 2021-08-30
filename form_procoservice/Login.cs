@@ -85,5 +85,10 @@ namespace form_procoservice
             var setter = client.Set("Usuario/" + "1", usuario);
             MessageBox.Show("Usuario registrado com sucesso!");
         }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

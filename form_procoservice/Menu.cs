@@ -20,6 +20,39 @@ namespace form_procoservice
         {
             Application.Exit();
         }
+
+  
+
+        private void btnHistorico_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCadastro_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnServicos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOrcamento_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelSideMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
     }
 
 

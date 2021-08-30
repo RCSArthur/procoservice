@@ -41,26 +41,30 @@ namespace form_procoservice
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(98, 222);
+            this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtEmail.Location = new System.Drawing.Point(323, 280);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PlaceholderText = "E-mail";
-            this.txtEmail.Size = new System.Drawing.Size(230, 23);
+            this.txtEmail.Size = new System.Drawing.Size(230, 27);
             this.txtEmail.TabIndex = 0;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(98, 251);
+            this.txtSenha.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtSenha.Location = new System.Drawing.Point(323, 313);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PlaceholderText = "Senha";
-            this.txtSenha.Size = new System.Drawing.Size(230, 23);
+            this.txtSenha.Size = new System.Drawing.Size(230, 27);
             this.txtSenha.TabIndex = 1;
             this.txtSenha.UseSystemPasswordChar = true;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(125, 76);
+            this.pictureBox1.Location = new System.Drawing.Point(354, 142);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(175, 107);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -69,22 +73,24 @@ namespace form_procoservice
             // 
             // lblLogin
             // 
+            this.lblLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblLogin.AutoSize = true;
             this.lblLogin.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblLogin.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLogin.Location = new System.Drawing.Point(160, 22);
+            this.lblLogin.Location = new System.Drawing.Point(383, 76);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(99, 45);
+            this.lblLogin.Size = new System.Drawing.Size(122, 54);
             this.lblLogin.TabIndex = 3;
             this.lblLogin.Text = "Login";
             // 
             // btnLogin
             // 
+            this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLogin.BackColor = System.Drawing.Color.Snow;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLogin.Location = new System.Drawing.Point(184, 280);
+            this.btnLogin.Location = new System.Drawing.Point(395, 362);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.Size = new System.Drawing.Size(92, 29);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Entrar";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -92,11 +98,12 @@ namespace form_procoservice
             // 
             // btnRegistrar
             // 
+            this.btnRegistrar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRegistrar.BackColor = System.Drawing.Color.Snow;
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRegistrar.Location = new System.Drawing.Point(184, 309);
+            this.btnRegistrar.Location = new System.Drawing.Point(395, 397);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
+            this.btnRegistrar.Size = new System.Drawing.Size(92, 28);
             this.btnRegistrar.TabIndex = 5;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
@@ -106,7 +113,7 @@ namespace form_procoservice
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Wheat;
-            this.ClientSize = new System.Drawing.Size(434, 361);
+            this.ClientSize = new System.Drawing.Size(909, 544);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblLogin);

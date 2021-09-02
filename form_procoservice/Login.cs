@@ -10,18 +10,13 @@ namespace form_procoservice
 {
     public partial class Login : Form
     {
-        private const string ADMIN = "admin";
-        private FirestoreDb database;
 
-        public Login()
+        public Login() => InitializeComponent();
+
+        IFirebaseConfig ifc = new FirebaseConfig()
         {
-            InitializeComponent();
-
-        }
-
-        IFirebaseConfig ifc = new FirebaseConfig() {
             AuthSecret = "2dlvEYvOuhdvxZlgSAmPHAXMfoODfi3rDaTZT9t3",
-            BasePath="https://procoservice-d428b-default-rtdb.firebaseio.com/"
+            BasePath = "https://procoservice-d428b-default-rtdb.firebaseio.com/"
         };
 
         IFirebaseClient client;
@@ -39,9 +34,6 @@ namespace form_procoservice
                 MessageBox.Show("Sem conexão com a internet ou problema de conexão.");
             }
         }
-
-
-
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -77,7 +69,6 @@ namespace form_procoservice
 
             Usuario usuario = new Usuario()
             {
-                //addDocWithAutoID();
                 Email = txtEmail.Text,
                 Senha = txtSenha.Text
             };

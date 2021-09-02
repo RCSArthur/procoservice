@@ -45,7 +45,7 @@ namespace form_procoservice
             this.txtEmail.Location = new System.Drawing.Point(323, 280);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PlaceholderText = "E-mail";
-            this.txtEmail.Size = new System.Drawing.Size(230, 27);
+            this.txtEmail.Size = new System.Drawing.Size(230, 23);
             this.txtEmail.TabIndex = 0;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
@@ -55,7 +55,7 @@ namespace form_procoservice
             this.txtSenha.Location = new System.Drawing.Point(323, 313);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PlaceholderText = "Senha";
-            this.txtSenha.Size = new System.Drawing.Size(230, 27);
+            this.txtSenha.Size = new System.Drawing.Size(230, 23);
             this.txtSenha.TabIndex = 1;
             this.txtSenha.UseSystemPasswordChar = true;
             // 
@@ -77,16 +77,17 @@ namespace form_procoservice
             this.lblLogin.AutoSize = true;
             this.lblLogin.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblLogin.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLogin.Location = new System.Drawing.Point(383, 76);
+            this.lblLogin.ForeColor = System.Drawing.Color.White;
+            this.lblLogin.Location = new System.Drawing.Point(395, 69);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(122, 54);
+            this.lblLogin.Size = new System.Drawing.Size(99, 45);
             this.lblLogin.TabIndex = 3;
             this.lblLogin.Text = "Login";
             // 
             // btnLogin
             // 
             this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLogin.BackColor = System.Drawing.Color.Snow;
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogin.Location = new System.Drawing.Point(395, 362);
             this.btnLogin.Name = "btnLogin";
@@ -99,7 +100,7 @@ namespace form_procoservice
             // btnRegistrar
             // 
             this.btnRegistrar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRegistrar.BackColor = System.Drawing.Color.Snow;
+            this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRegistrar.Location = new System.Drawing.Point(395, 397);
             this.btnRegistrar.Name = "btnRegistrar";
@@ -112,7 +113,7 @@ namespace form_procoservice
             // Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.Wheat;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.ClientSize = new System.Drawing.Size(909, 544);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.btnLogin);

@@ -2,16 +2,11 @@
 using Google.Cloud.Firestore;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace form_procoservice
 {
@@ -100,7 +95,7 @@ namespace form_procoservice
                     }
                 }
             }
-            catch (Exception e)
+            catch (System.Exception e)
             {
                 MessageBox.Show("Erro ao buscar CEP!\n" + e);
             }
@@ -129,6 +124,7 @@ namespace form_procoservice
                         { "UF", txtUF.Text },
                         { "numero", txtNumero.Text }
                     };
+                    VerificarNome("clientes", txtNome.Text);
                     coll.AddAsync(data);
                     MessageBox.Show("Cliente " + txtNome.Text + " criado com sucesso!");
                     (this).Limpar();
@@ -162,6 +158,24 @@ namespace form_procoservice
         {
             string cep = mtxtCEP.Text.ReplaceNumeros();
             mtxtCEP.Cep(cep);
+        }
+
+        async void VerificarNome(string colecao, string nome)
+        {
+            Query documentos = database.Collection(colecao);
+            QuerySnapshot snap = await documentos.GetSnapshotAsync();
+            foreach (DocumentSnapshot docsnap in snap.Documents)
+            {
+                Cliente docs = docsnap.ConvertTo<Cliente>();
+                if (docsnap.Exists)
+                {
+                    if (docs.nome == nome)
+                    {
+                        MessageBox.Show("Nome já cadastrado anteriormente");
+                        break;
+                    }
+                }
+            }
         }
     }
 }

@@ -46,6 +46,7 @@ namespace form_procoservice
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.mtxtCEP = new System.Windows.Forms.MaskedTextBox();
             this.mtxtTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.lblVerificaNome = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNome
@@ -117,6 +118,7 @@ namespace form_procoservice
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(197, 23);
             this.txtNome.TabIndex = 0;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // txtRua
             // 
@@ -200,11 +202,23 @@ namespace form_procoservice
             this.mtxtTelefone.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtxtTelefone_MouseClick);
             this.mtxtTelefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtTelefone_KeyPress);
             // 
+            // lblVerificaNome
+            // 
+            this.lblVerificaNome.AutoSize = true;
+            this.lblVerificaNome.ForeColor = System.Drawing.Color.Red;
+            this.lblVerificaNome.Location = new System.Drawing.Point(299, 34);
+            this.lblVerificaNome.Name = "lblVerificaNome";
+            this.lblVerificaNome.Size = new System.Drawing.Size(68, 15);
+            this.lblVerificaNome.TabIndex = 15;
+            this.lblVerificaNome.Text = "testa_nome";
+            this.lblVerificaNome.Visible = false;
+            // 
             // Cadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(581, 380);
+            this.Controls.Add(this.lblVerificaNome);
             this.Controls.Add(this.mtxtTelefone);
             this.Controls.Add(this.mtxtCEP);
             this.Controls.Add(this.btnCadastrar);
@@ -251,5 +265,6 @@ namespace form_procoservice
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.MaskedTextBox mtxtCEP;
         private System.Windows.Forms.MaskedTextBox mtxtTelefone;
+        private System.Windows.Forms.Label lblVerificaNome;
     }
 }

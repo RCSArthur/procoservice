@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace form_procoservice.Utils
 {
-    internal static class Firebase
+    internal static class FirebaseService
     {
         public static FirestoreDb Conectar()
         {

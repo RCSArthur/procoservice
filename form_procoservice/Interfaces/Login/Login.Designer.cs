@@ -113,6 +113,7 @@ namespace form_procoservice
             // Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.ClientSize = new System.Drawing.Size(909, 544);
             this.Controls.Add(this.btnRegistrar);
@@ -122,7 +123,9 @@ namespace form_procoservice
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.txtEmail);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(925, 583);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(925, 583);
             this.Name = "Login";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -12,7 +12,7 @@ namespace form_procoservice
 {
     public partial class Cadastro : Form
     {
-        private static readonly FirestoreDb firestoreDb = Firebase.Conectar();
+        private static readonly FirestoreDb firestoreDb = FirebaseService.Conectar();
         private FirestoreDb database;
         private string telefone;
 

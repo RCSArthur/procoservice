@@ -124,7 +124,6 @@ namespace form_procoservice
                         { "UF", txtUF.Text },
                         { "numero", txtNumero.Text }
                     };
-                    VerificarNome("clientes", txtNome.Text);
                     coll.AddAsync(data);
                     MessageBox.Show("Cliente " + txtNome.Text + " criado com sucesso!");
                     (this).Limpar();
@@ -160,22 +159,34 @@ namespace form_procoservice
             mtxtCEP.Cep(cep);
         }
 
-        async void VerificarNome(string colecao, string nome)
+        async void VerificarNome()
         {
-            Query documentos = database.Collection(colecao);
+            Query documentos = database.Collection("clientes");
             QuerySnapshot snap = await documentos.GetSnapshotAsync();
             foreach (DocumentSnapshot docsnap in snap.Documents)
             {
                 Cliente docs = docsnap.ConvertTo<Cliente>();
                 if (docsnap.Exists)
                 {
-                    if (docs.nome == nome)
+                    if (docs.nome.ToLower() == txtNome.Text.ToLower())
                     {
-                        MessageBox.Show("Nome já cadastrado anteriormente");
+                        btnCadastrar.Enabled = false;
+                        lblVerificaNome.Visible = true;
+                        lblVerificaNome.Text = "Nome já cadastrado, insira outro";
                         break;
+                    }
+                    else
+                    {
+                        btnCadastrar.Enabled = true;
+                        lblVerificaNome.Visible = false;
                     }
                 }
             }
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+            VerificarNome();
         }
     }
 }

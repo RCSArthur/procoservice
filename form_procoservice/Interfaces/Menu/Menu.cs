@@ -1,4 +1,5 @@
-﻿using System;
+﻿using form_procoservice.Interfaces.Clientes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,6 +42,11 @@ namespace form_procoservice
         private void btnOrcamento_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Orcamento());
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Clientes());
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

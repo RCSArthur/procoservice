@@ -47,12 +47,18 @@ namespace form_procoservice
             this.mtxtCEP = new System.Windows.Forms.MaskedTextBox();
             this.mtxtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.lblVerificaNome = new System.Windows.Forms.Label();
+            this.rbtnPessoaFisica = new System.Windows.Forms.RadioButton();
+            this.rbtnPessoaJuridica = new System.Windows.Forms.RadioButton();
+            this.gboxTipoPessoa = new System.Windows.Forms.GroupBox();
+            this.mtxtCpfCnpj = new System.Windows.Forms.MaskedTextBox();
+            this.lblCpfCnpj = new System.Windows.Forms.Label();
+            this.gboxTipoPessoa.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(12, 30);
+            this.lblNome.Location = new System.Drawing.Point(12, 68);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(40, 15);
             this.lblNome.TabIndex = 0;
@@ -61,7 +67,7 @@ namespace form_procoservice
             // lblTelefone
             // 
             this.lblTelefone.AutoSize = true;
-            this.lblTelefone.Location = new System.Drawing.Point(12, 70);
+            this.lblTelefone.Location = new System.Drawing.Point(12, 108);
             this.lblTelefone.Name = "lblTelefone";
             this.lblTelefone.Size = new System.Drawing.Size(51, 15);
             this.lblTelefone.TabIndex = 1;
@@ -70,7 +76,7 @@ namespace form_procoservice
             // lblCEP
             // 
             this.lblCEP.AutoSize = true;
-            this.lblCEP.Location = new System.Drawing.Point(12, 110);
+            this.lblCEP.Location = new System.Drawing.Point(309, 108);
             this.lblCEP.Name = "lblCEP";
             this.lblCEP.Size = new System.Drawing.Size(28, 15);
             this.lblCEP.TabIndex = 2;
@@ -79,7 +85,7 @@ namespace form_procoservice
             // lblRua
             // 
             this.lblRua.AutoSize = true;
-            this.lblRua.Location = new System.Drawing.Point(12, 150);
+            this.lblRua.Location = new System.Drawing.Point(12, 151);
             this.lblRua.Name = "lblRua";
             this.lblRua.Size = new System.Drawing.Size(27, 15);
             this.lblRua.TabIndex = 3;
@@ -88,7 +94,7 @@ namespace form_procoservice
             // lblBairro
             // 
             this.lblBairro.AutoSize = true;
-            this.lblBairro.Location = new System.Drawing.Point(12, 190);
+            this.lblBairro.Location = new System.Drawing.Point(12, 188);
             this.lblBairro.Name = "lblBairro";
             this.lblBairro.Size = new System.Drawing.Size(38, 15);
             this.lblBairro.TabIndex = 4;
@@ -97,7 +103,7 @@ namespace form_procoservice
             // lblCidade
             // 
             this.lblCidade.AutoSize = true;
-            this.lblCidade.Location = new System.Drawing.Point(12, 230);
+            this.lblCidade.Location = new System.Drawing.Point(12, 228);
             this.lblCidade.Name = "lblCidade";
             this.lblCidade.Size = new System.Drawing.Size(44, 15);
             this.lblCidade.TabIndex = 5;
@@ -106,7 +112,7 @@ namespace form_procoservice
             // lblUF
             // 
             this.lblUF.AutoSize = true;
-            this.lblUF.Location = new System.Drawing.Point(12, 270);
+            this.lblUF.Location = new System.Drawing.Point(309, 148);
             this.lblUF.Name = "lblUF";
             this.lblUF.Size = new System.Drawing.Size(21, 15);
             this.lblUF.TabIndex = 6;
@@ -114,7 +120,7 @@ namespace form_procoservice
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(95, 27);
+            this.txtNome.Location = new System.Drawing.Point(93, 65);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(197, 23);
             this.txtNome.TabIndex = 0;
@@ -123,7 +129,7 @@ namespace form_procoservice
             // txtRua
             // 
             this.txtRua.Enabled = false;
-            this.txtRua.Location = new System.Drawing.Point(95, 147);
+            this.txtRua.Location = new System.Drawing.Point(93, 145);
             this.txtRua.Name = "txtRua";
             this.txtRua.ReadOnly = true;
             this.txtRua.Size = new System.Drawing.Size(197, 23);
@@ -132,7 +138,7 @@ namespace form_procoservice
             // txtBairro
             // 
             this.txtBairro.Enabled = false;
-            this.txtBairro.Location = new System.Drawing.Point(95, 187);
+            this.txtBairro.Location = new System.Drawing.Point(93, 185);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.ReadOnly = true;
             this.txtBairro.Size = new System.Drawing.Size(197, 23);
@@ -141,7 +147,7 @@ namespace form_procoservice
             // txtCidade
             // 
             this.txtCidade.Enabled = false;
-            this.txtCidade.Location = new System.Drawing.Point(95, 227);
+            this.txtCidade.Location = new System.Drawing.Point(93, 225);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.ReadOnly = true;
             this.txtCidade.Size = new System.Drawing.Size(100, 23);
@@ -150,7 +156,7 @@ namespace form_procoservice
             // txtUF
             // 
             this.txtUF.Enabled = false;
-            this.txtUF.Location = new System.Drawing.Point(95, 267);
+            this.txtUF.Location = new System.Drawing.Point(353, 145);
             this.txtUF.Name = "txtUF";
             this.txtUF.ReadOnly = true;
             this.txtUF.Size = new System.Drawing.Size(100, 23);
@@ -159,7 +165,7 @@ namespace form_procoservice
             // lblNumero
             // 
             this.lblNumero.AutoSize = true;
-            this.lblNumero.Location = new System.Drawing.Point(12, 310);
+            this.lblNumero.Location = new System.Drawing.Point(12, 268);
             this.lblNumero.Name = "lblNumero";
             this.lblNumero.Size = new System.Drawing.Size(51, 15);
             this.lblNumero.TabIndex = 14;
@@ -167,14 +173,14 @@ namespace form_procoservice
             // 
             // txtNumero
             // 
-            this.txtNumero.Location = new System.Drawing.Point(95, 307);
+            this.txtNumero.Location = new System.Drawing.Point(93, 265);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(100, 23);
             this.txtNumero.TabIndex = 3;
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(435, 306);
+            this.btnCadastrar.Location = new System.Drawing.Point(435, 344);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(104, 23);
             this.btnCadastrar.TabIndex = 4;
@@ -184,7 +190,7 @@ namespace form_procoservice
             // 
             // mtxtCEP
             // 
-            this.mtxtCEP.Location = new System.Drawing.Point(95, 107);
+            this.mtxtCEP.Location = new System.Drawing.Point(353, 105);
             this.mtxtCEP.Mask = "00000-000";
             this.mtxtCEP.Name = "mtxtCEP";
             this.mtxtCEP.Size = new System.Drawing.Size(100, 23);
@@ -194,30 +200,85 @@ namespace form_procoservice
             // 
             // mtxtTelefone
             // 
-            this.mtxtTelefone.Location = new System.Drawing.Point(95, 67);
+            this.mtxtTelefone.Location = new System.Drawing.Point(93, 105);
             this.mtxtTelefone.Mask = "(99) 0000-0000";
             this.mtxtTelefone.Name = "mtxtTelefone";
+            this.mtxtTelefone.ResetOnPrompt = false;
+            this.mtxtTelefone.ResetOnSpace = false;
             this.mtxtTelefone.Size = new System.Drawing.Size(100, 23);
             this.mtxtTelefone.TabIndex = 1;
-            this.mtxtTelefone.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtxtTelefone_MouseClick);
             this.mtxtTelefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtTelefone_KeyPress);
             // 
             // lblVerificaNome
             // 
             this.lblVerificaNome.AutoSize = true;
             this.lblVerificaNome.ForeColor = System.Drawing.Color.Red;
-            this.lblVerificaNome.Location = new System.Drawing.Point(299, 34);
+            this.lblVerificaNome.Location = new System.Drawing.Point(459, 68);
             this.lblVerificaNome.Name = "lblVerificaNome";
-            this.lblVerificaNome.Size = new System.Drawing.Size(68, 15);
+            this.lblVerificaNome.Size = new System.Drawing.Size(58, 15);
             this.lblVerificaNome.TabIndex = 15;
-            this.lblVerificaNome.Text = "testa_nome";
+            this.lblVerificaNome.Text = "label_erro";
             this.lblVerificaNome.Visible = false;
+            // 
+            // rbtnPessoaFisica
+            // 
+            this.rbtnPessoaFisica.AutoSize = true;
+            this.rbtnPessoaFisica.Checked = true;
+            this.rbtnPessoaFisica.Location = new System.Drawing.Point(6, 20);
+            this.rbtnPessoaFisica.Name = "rbtnPessoaFisica";
+            this.rbtnPessoaFisica.Size = new System.Drawing.Size(93, 19);
+            this.rbtnPessoaFisica.TabIndex = 16;
+            this.rbtnPessoaFisica.TabStop = true;
+            this.rbtnPessoaFisica.Text = "Pessoa Física";
+            this.rbtnPessoaFisica.UseVisualStyleBackColor = true;
+            this.rbtnPessoaFisica.CheckedChanged += new System.EventHandler(this.rbtnPessoaFisica_CheckedChanged);
+            // 
+            // rbtnPessoaJuridica
+            // 
+            this.rbtnPessoaJuridica.AutoSize = true;
+            this.rbtnPessoaJuridica.Location = new System.Drawing.Point(135, 20);
+            this.rbtnPessoaJuridica.Name = "rbtnPessoaJuridica";
+            this.rbtnPessoaJuridica.Size = new System.Drawing.Size(104, 19);
+            this.rbtnPessoaJuridica.TabIndex = 17;
+            this.rbtnPessoaJuridica.Text = "Pessoa Jurídica";
+            this.rbtnPessoaJuridica.UseVisualStyleBackColor = true;
+            this.rbtnPessoaJuridica.CheckedChanged += new System.EventHandler(this.rbtnPessoaJuridica_CheckedChanged);
+            // 
+            // gboxTipoPessoa
+            // 
+            this.gboxTipoPessoa.Controls.Add(this.rbtnPessoaFisica);
+            this.gboxTipoPessoa.Controls.Add(this.rbtnPessoaJuridica);
+            this.gboxTipoPessoa.Location = new System.Drawing.Point(68, 1);
+            this.gboxTipoPessoa.Name = "gboxTipoPessoa";
+            this.gboxTipoPessoa.Size = new System.Drawing.Size(245, 45);
+            this.gboxTipoPessoa.TabIndex = 18;
+            this.gboxTipoPessoa.TabStop = false;
+            // 
+            // mtxtCpfCnpj
+            // 
+            this.mtxtCpfCnpj.Location = new System.Drawing.Point(353, 65);
+            this.mtxtCpfCnpj.Mask = "000\\.000\\.000-00";
+            this.mtxtCpfCnpj.Name = "mtxtCpfCnpj";
+            this.mtxtCpfCnpj.Size = new System.Drawing.Size(100, 23);
+            this.mtxtCpfCnpj.TabIndex = 19;
+            // 
+            // lblCpfCnpj
+            // 
+            this.lblCpfCnpj.AutoSize = true;
+            this.lblCpfCnpj.Location = new System.Drawing.Point(309, 68);
+            this.lblCpfCnpj.Name = "lblCpfCnpj";
+            this.lblCpfCnpj.Size = new System.Drawing.Size(28, 15);
+            this.lblCpfCnpj.TabIndex = 20;
+            this.lblCpfCnpj.Text = "CPF";
             // 
             // Cadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(581, 380);
+            this.Controls.Add(this.mtxtCpfCnpj);
+            this.Controls.Add(this.lblCpfCnpj);
+            this.Controls.Add(this.gboxTipoPessoa);
             this.Controls.Add(this.lblVerificaNome);
             this.Controls.Add(this.mtxtTelefone);
             this.Controls.Add(this.mtxtCEP);
@@ -241,6 +302,8 @@ namespace form_procoservice
             this.ShowIcon = false;
             this.Text = "Cadastro";
             this.Load += new System.EventHandler(this.Cadastro_Load);
+            this.gboxTipoPessoa.ResumeLayout(false);
+            this.gboxTipoPessoa.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,5 +329,10 @@ namespace form_procoservice
         private System.Windows.Forms.MaskedTextBox mtxtCEP;
         private System.Windows.Forms.MaskedTextBox mtxtTelefone;
         private System.Windows.Forms.Label lblVerificaNome;
+        private System.Windows.Forms.RadioButton rbtnPessoaFisica;
+        private System.Windows.Forms.RadioButton rbtnPessoaJuridica;
+        private System.Windows.Forms.GroupBox gboxTipoPessoa;
+        private System.Windows.Forms.MaskedTextBox mtxtCpfCnpj;
+        private System.Windows.Forms.Label lblCpfCnpj;
     }
 }

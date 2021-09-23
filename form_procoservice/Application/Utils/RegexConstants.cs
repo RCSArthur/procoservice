@@ -9,6 +9,6 @@ namespace form_procoservice.Utils
 {
     internal static class RegexConstants
     {
-        public static readonly Regex Numeros = new("[^0-9]");
+        public static readonly Regex Numeros = new("[^0-9]+$");
     }
 }

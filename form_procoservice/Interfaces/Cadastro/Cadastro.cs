@@ -136,17 +136,6 @@ namespace form_procoservice
             }
         }
 
-        private void mtxtTelefone_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            telefone = mtxtTelefone.Text.ReplaceNumeros();
-            mtxtTelefone.Mask = "(99) 0000-0000";
-            if (telefone.IndexOf("9") == 2)
-            {
-                mtxtTelefone.Mask = "(99) 90000-0000";
-            }
-            mtxtTelefone.Telefone(telefone);
-        }
-
         private void mtxtTelefone_MouseClick(object sender, MouseEventArgs e)
         {
             telefone = mtxtTelefone.Text.ReplaceNumeros();
@@ -168,7 +157,7 @@ namespace form_procoservice
                 Cliente docs = docsnap.ConvertTo<Cliente>();
                 if (docsnap.Exists)
                 {
-                    if (docs.nome.ToLower() == txtNome.Text.ToLower())
+                    if (string.Equals(docs.nome, txtNome.Text, StringComparison.OrdinalIgnoreCase))
                     {
                         btnCadastrar.Enabled = false;
                         lblVerificaNome.Visible = true;
@@ -187,6 +176,37 @@ namespace form_procoservice
         private void txtNome_TextChanged(object sender, EventArgs e)
         {
             VerificarNome();
+        }
+
+        private void rbtnPessoaFisica_CheckedChanged(object sender, EventArgs e)
+        {
+            lblCpfCnpj.Text = "CPF";
+            mtxtCpfCnpj.Mask = @"000\.000\.000-00";
+            lblNome.Text = "Nome";
+        }
+
+        private void rbtnPessoaJuridica_CheckedChanged(object sender, EventArgs e)
+        {
+            lblCpfCnpj.Text = "CNPJ";
+            mtxtCpfCnpj.Mask = @"00\.000\.000/0000-00";
+            lblNome.Text = "Razão Social";
+        }
+
+        private void mtxtTelefone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            telefone = mtxtTelefone.Text.ReplaceNumeros();
+            mtxtTelefone.Mask = "(00) 0000-0000";
+            if (telefone.Length > 2)
+            {
+                string ddd = telefone.Substring(0, 2);
+                if (telefone[(telefone.IndexOfAny(ddd.ToCharArray()) + 2)..].IndexOf("9") == 0)
+                {
+                    mtxtTelefone.Mask = "(00) 00000-0000";
+                    if (telefone.Length > 10)
+                        mtxtTelefone.Text = telefone;
+                }
+            }
+            mtxtTelefone.Telefone(telefone);
         }
     }
 }

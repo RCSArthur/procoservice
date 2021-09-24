@@ -7,22 +7,29 @@ using System.Windows.Forms;
 
 namespace form_procoservice.Interfaces.Clientes
 {
-    public partial class Clientes : Form
+    public partial class Alterar : Form
     {
 
         private readonly FirestoreDb _fireDb = FirebaseService.Conectar();
 
         //Construtor para o Banco de Dados
-        public Clientes(FirestoreDb firestoreDb)
+        public Alterar(FirestoreDb firestoreDb)
         {
             _fireDb = firestoreDb;
         }
+        
+        private static readonly FirestoreDb firestoreDb = FirebaseService.Conectar();
+        private FirestoreDb database = firestoreDb;
 
-        public Clientes() => InitializeComponent();
+        public Alterar() => InitializeComponent();
 
         private void Clientes_Load(object sender, EventArgs e)
         {
             txtNome.Focus();
+            string path = AppDomain.CurrentDomain.BaseDirectory + "@cloudfire.json";
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
+
+            database = firestoreDb;
         }
 
         private void button1_ClickAsync(object sender, EventArgs e)
@@ -39,16 +46,16 @@ namespace form_procoservice.Interfaces.Clientes
 
             //criação de um objeto do tipo Tabela de dados e adicionando colunas conforme a classe Cliente.cs
             DataTable clientes = new();
-            clientes.Columns.Add("Nome");
-            clientes.Columns.Add("CpfCnpj");
-            clientes.Columns.Add("Telefone");
-            clientes.Columns.Add("Rua");
-            clientes.Columns.Add("Número");
-            clientes.Columns.Add("Bairro");
-            clientes.Columns.Add("Cidade");
-            clientes.Columns.Add("UF");
-            clientes.Columns.Add("CEP");
-            clientes.Columns.Add("Excluido");
+            clientes.Columns.Add("nome");
+            clientes.Columns.Add("cpfCnpj");
+            clientes.Columns.Add("telefone");
+            clientes.Columns.Add("rua");
+            clientes.Columns.Add("numero");
+            clientes.Columns.Add("bairro");
+            clientes.Columns.Add("cidade");
+            clientes.Columns.Add("Uf");
+            clientes.Columns.Add("cep");
+            clientes.Columns.Add("excluido");
 
             foreach (DocumentSnapshot docsnap in snapquery.Documents)
             {
@@ -116,6 +123,59 @@ namespace form_procoservice.Interfaces.Clientes
                     MessageBox.Show("Erro\n" + ex);
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Update_especifico();
+        }
+
+        private void dgDados_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        async void Update_especifico()
+        {      
+
+            int i = dgDados.CurrentRow.Index;
+            int col = dgDados.CurrentCell.ColumnIndex;
+            String nomeCol = dgDados.CurrentCell.OwningColumn.Name;
+            object valor = "";
+            object valorGet = dgDados.Rows[i].Cells[1].Value;
+            valor = textBox1.Text;
+            object documento = "";
+
+            Query cityque = database.Collection("clientes");
+            QuerySnapshot snape = await cityque.GetSnapshotAsync();
+
+            foreach(DocumentSnapshot docsnap in snape.Documents)
+            {
+                Cliente docs = docsnap.ConvertTo<Cliente>();
+                if (valorGet.ToString() == docs.cpfCnpj)
+                {
+                    documento = docsnap.Id;
+                    MessageBox.Show(documento.ToString());
+                }
+            }
+
+            DocumentReference docref = database.Collection("clientes").Document(documento.ToString());
+            Dictionary<string, object> data = new Dictionary<string, object>()
+            {
+                { nomeCol,  valor}
+            };
+
+            DocumentSnapshot snap = await docref.GetSnapshotAsync();
+            if (snap.Exists)
+            {
+                docref.UpdateAsync(data);
+            }
+
+        }
+
+        private void Alterar_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

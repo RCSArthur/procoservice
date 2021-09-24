@@ -16,7 +16,6 @@ namespace form_procoservice
         private FirestoreDb database;
         private string telefone;
 
-
         public Cadastro() => InitializeComponent();
 
         private void Cadastro_Load(object sender, EventArgs e)
@@ -44,7 +43,7 @@ namespace form_procoservice
                     using Stream webStream = ChecaServidor.GetResponseStream();
                     if (webStream != null)
                     {
-                        using (StreamReader responseReader = new StreamReader(webStream))
+                        using (StreamReader responseReader = new(webStream))
                         {
                             string response = responseReader.ReadToEnd();
                             response = Regex.Replace(response, "[{},]", string.Empty);
@@ -69,25 +68,37 @@ namespace form_procoservice
                                 if (cont == 2)
                                 {
                                     string[] valor = substring.Split(":".ToCharArray());
-                                    txtRua.Text = valor[1];
+                                    txtRua.Invoke((MethodInvoker)delegate
+                                    {
+                                        txtRua.Text = valor[1];
+                                    });
                                 }
                                 //Bairro
                                 if (cont == 4)
                                 {
                                     string[] valor = substring.Split(":".ToCharArray());
-                                    txtBairro.Text = valor[1];
+                                    txtBairro.Invoke((MethodInvoker)delegate
+                                    {
+                                        txtBairro.Text = valor[1];
+                                    });
                                 }
                                 //Localidade (Cidade)
                                 if (cont == 5)
                                 {
                                     string[] valor = substring.Split(":".ToCharArray());
-                                    txtCidade.Text = valor[1];
+                                    txtCidade.Invoke((MethodInvoker)delegate
+                                    {
+                                        txtCidade.Text = valor[1];
+                                    });
                                 }
                                 //Estado (UF)
                                 if (cont == 6)
                                 {
                                     string[] valor = substring.Split(":".ToCharArray());
-                                    txtUF.Text = valor[1];
+                                    txtUF.Invoke((MethodInvoker)delegate
+                                    {
+                                        txtUF.Text = valor[1];
+                                    });
                                 }
                                 cont++;
                             }
@@ -117,6 +128,8 @@ namespace form_procoservice
                     {
                         { "nome", txtNome.Text },
                         { "telefone", mtxtTelefone.Text },
+                        { "cpfCnpj", mtxtCpfCnpj.Text },
+                        { "isExcluido", false },
                         { "cep", mtxtCEP.Text },
                         { "rua", txtRua.Text },
                         { "bairro", txtBairro.Text },
@@ -148,65 +161,163 @@ namespace form_procoservice
             mtxtCEP.Cep(cep);
         }
 
-        async void VerificarNome()
+        private async void VerificarCpfCnpj()
         {
-            Query documentos = database.Collection("clientes");
-            QuerySnapshot snap = await documentos.GetSnapshotAsync();
-            foreach (DocumentSnapshot docsnap in snap.Documents)
+            try
             {
-                Cliente docs = docsnap.ConvertTo<Cliente>();
-                if (docsnap.Exists)
+                Query documentos = database.Collection("clientes");
+                QuerySnapshot snap = await documentos.GetSnapshotAsync();
+                foreach (DocumentSnapshot docsnap in snap.Documents)
                 {
-                    if (string.Equals(docs.nome, txtNome.Text, StringComparison.OrdinalIgnoreCase))
+                    Cliente docs = docsnap.ConvertTo<Cliente>();
+                    if (docsnap.Exists)
                     {
-                        btnCadastrar.Enabled = false;
-                        lblVerificaNome.Visible = true;
-                        lblVerificaNome.Text = "Nome já cadastrado, insira outro";
-                        break;
-                    }
-                    else
-                    {
-                        btnCadastrar.Enabled = true;
-                        lblVerificaNome.Visible = false;
+                        if (string.Equals(docs.cpfCnpj, mtxtCpfCnpj.Text, StringComparison.OrdinalIgnoreCase))
+                        {
+                            btnCadastrar.Invoke((MethodInvoker)delegate
+                            {
+                                btnCadastrar.Enabled = false;
+                            });
+                            lblVerificaNome.Invoke((MethodInvoker)delegate
+                            {
+                                lblVerificaNome.Visible = true;
+                                lblVerificaNome.Text = "Já cadastrado!";
+                            });
+                            break;
+                        }
+                        else
+                        {
+                            btnCadastrar.Invoke((MethodInvoker)delegate
+                            {
+                                btnCadastrar.Enabled = true;
+                            });
+                            lblVerificaNome.Invoke((MethodInvoker)delegate
+                            {
+                                lblVerificaNome.Visible = false;
+                            });
+                        }
                     }
                 }
             }
-        }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro\n" + ex);
+            }
 
-        private void txtNome_TextChanged(object sender, EventArgs e)
-        {
-            VerificarNome();
         }
 
         private void rbtnPessoaFisica_CheckedChanged(object sender, EventArgs e)
         {
-            lblCpfCnpj.Text = "CPF";
-            mtxtCpfCnpj.Mask = @"000\.000\.000-00";
-            lblNome.Text = "Nome";
+            lblCpfCnpj.Invoke((MethodInvoker)delegate
+            {
+                lblCpfCnpj.Text = "CPF";
+            });
+            mtxtCpfCnpj.Invoke((MethodInvoker)delegate
+            {
+                mtxtCpfCnpj.Mask = @"000\.000\.000-00";
+            });
+            lblNome.Invoke((MethodInvoker)delegate
+            {
+                lblNome.Text = "Nome";
+            });
         }
 
         private void rbtnPessoaJuridica_CheckedChanged(object sender, EventArgs e)
         {
-            lblCpfCnpj.Text = "CNPJ";
-            mtxtCpfCnpj.Mask = @"00\.000\.000/0000-00";
-            lblNome.Text = "Razão Social";
+            lblCpfCnpj.Invoke((MethodInvoker)delegate
+            {
+                lblCpfCnpj.Text = "CNPJ";
+            });
+            mtxtCpfCnpj.Invoke((MethodInvoker)delegate
+            {
+                mtxtCpfCnpj.Mask = @"00\.000\.000/0000-00";
+            });
+            lblNome.Invoke((MethodInvoker)delegate
+            {
+                lblNome.Text = "Razão Social";
+            });
         }
 
         private void mtxtTelefone_KeyPress(object sender, KeyPressEventArgs e)
         {
             telefone = mtxtTelefone.Text.ReplaceNumeros();
-            mtxtTelefone.Mask = "(00) 0000-0000";
+            mtxtTelefone.Invoke((MethodInvoker)delegate
+            {
+                mtxtTelefone.Mask = "(00) 0000-0000";
+            });
             if (telefone.Length > 2)
             {
                 string ddd = telefone.Substring(0, 2);
                 if (telefone[(telefone.IndexOfAny(ddd.ToCharArray()) + 2)..].IndexOf("9") == 0)
                 {
-                    mtxtTelefone.Mask = "(00) 00000-0000";
+                    mtxtTelefone.Invoke((MethodInvoker)delegate
+                    {
+                        mtxtTelefone.Mask = "(00) 00000-0000";
+                    });
                     if (telefone.Length > 10)
-                        mtxtTelefone.Text = telefone;
+                        mtxtTelefone.Invoke((MethodInvoker)delegate
+                        {
+                            mtxtTelefone.Text = telefone;
+                        });
                 }
             }
             mtxtTelefone.Telefone(telefone);
+        }
+
+        private void mtxtCpfCnpj_TextChanged(object sender, EventArgs e)
+        {
+            if (EhPessoaFisica())
+            {
+                if (mtxtCpfCnpj.Text.ValidaCpf() && mtxtCpfCnpj.Text.Strip().Length == 11)
+                {
+                    VerificarCpfCnpj();
+                }
+                else if (mtxtCpfCnpj.Text.Strip().Length == 11)
+                {
+                    InvalidarCadastro();
+                }
+            }
+            else
+            {
+                if (mtxtCpfCnpj.Text.ValidaCnpj() && mtxtCpfCnpj.Text.Strip().Length == 14)
+                {
+                    VerificarCpfCnpj();
+                }
+                else if (mtxtCpfCnpj.Text.Strip().Length == 14)
+                {
+                    InvalidarCadastro();
+                }
+            }
+        }
+
+        private void mtxtCpfCnpj_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (mtxtCpfCnpj.Text.Length > 0)
+            {
+                string cpfCnpj = mtxtCpfCnpj.Text;
+                mtxtCpfCnpj.CpfCnpj(cpfCnpj.Strip());
+            }
+        }
+
+        private void InvalidarCadastro()
+        {
+            btnCadastrar.Invoke((MethodInvoker)delegate
+            {
+                btnCadastrar.Enabled = false;
+            });
+            lblVerificaNome.Invoke((MethodInvoker)delegate
+            {
+                lblVerificaNome.Visible = true;
+            });
+            lblVerificaNome.Invoke((MethodInvoker)delegate
+            {
+                lblVerificaNome.Text = "Inválido!";
+            });
+        }
+
+        private bool EhPessoaFisica()
+        {
+            return rbtnPessoaFisica.Checked;
         }
     }
 }

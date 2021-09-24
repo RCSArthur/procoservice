@@ -11,6 +11,15 @@ namespace form_procoservice
     public class Cliente
     {
         [FirestoreProperty]
+        public string nome { get; set; }
+
+        [FirestoreProperty]
+        public string cpfCnpj { get; set; }
+
+        [FirestoreProperty]
+        public bool isExcluido { get; set; }
+
+        [FirestoreProperty]
         public string UF { get; set; }
 
         [FirestoreProperty]
@@ -22,8 +31,6 @@ namespace form_procoservice
         [FirestoreProperty]
         public string cidade { get; set; }
 
-        [FirestoreProperty]
-        public string nome { get; set; }
 
         [FirestoreProperty]
         public string numero { get; set; }

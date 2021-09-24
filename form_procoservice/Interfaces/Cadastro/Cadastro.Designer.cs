@@ -124,7 +124,6 @@ namespace form_procoservice
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(197, 23);
             this.txtNome.TabIndex = 0;
-            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // txtRua
             // 
@@ -261,6 +260,8 @@ namespace form_procoservice
             this.mtxtCpfCnpj.Name = "mtxtCpfCnpj";
             this.mtxtCpfCnpj.Size = new System.Drawing.Size(100, 23);
             this.mtxtCpfCnpj.TabIndex = 19;
+            this.mtxtCpfCnpj.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtxtCpfCnpj_MouseClick);
+            this.mtxtCpfCnpj.TextChanged += new System.EventHandler(this.mtxtCpfCnpj_TextChanged);
             // 
             // lblCpfCnpj
             // 

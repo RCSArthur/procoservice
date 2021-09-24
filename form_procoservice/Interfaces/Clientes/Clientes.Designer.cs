@@ -31,7 +31,7 @@ namespace form_procoservice.Interfaces.Clientes
         {
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.dgDados = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgDados)).BeginInit();
             this.SuspendLayout();
@@ -57,13 +57,13 @@ namespace form_procoservice.Interfaces.Clientes
             this.label1.Text = "Nome a pesquisar: ";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
-            // textBox1
+            // txtNome
             // 
-            this.textBox1.Location = new System.Drawing.Point(134, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(244, 23);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtNome.Location = new System.Drawing.Point(134, 27);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(244, 23);
+            this.txtNome.TabIndex = 2;
+            this.txtNome.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // dgDados
             // 
@@ -75,6 +75,7 @@ namespace form_procoservice.Interfaces.Clientes
             this.dgDados.Size = new System.Drawing.Size(477, 314);
             this.dgDados.TabIndex = 3;
             this.dgDados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            this.dgDados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDados_CellDoubleClick);
             // 
             // Clientes
             // 
@@ -82,7 +83,7 @@ namespace form_procoservice.Interfaces.Clientes
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(501, 380);
             this.Controls.Add(this.dgDados);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Name = "Clientes";
@@ -96,7 +97,7 @@ namespace form_procoservice.Interfaces.Clientes
         #endregion
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.DataGridView dgDados;
     }
 }

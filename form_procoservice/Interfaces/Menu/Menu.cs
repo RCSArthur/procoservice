@@ -22,8 +22,6 @@ namespace form_procoservice
             Application.Exit();
         }
 
-  
-
         private void btnHistorico_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Historico());
@@ -49,26 +47,16 @@ namespace form_procoservice
             OpenChildForm(new Clientes());
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
+        private void panel1_Paint(object sender, PaintEventArgs e) { }
 
-        }
+        private void panelSideMenu_Paint(object sender, PaintEventArgs e) { }
 
-        private void panelSideMenu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Menu_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void Menu_Load(object sender, EventArgs e) { }
 
         private Form activeForm = null;
         private void OpenChildForm(Form childForm)
         {
-            if (activeForm != null)
-                activeForm.Close();
+            activeForm?.Close();
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -77,11 +65,6 @@ namespace form_procoservice
             panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-
-
-
         }
     }
-
-
 }

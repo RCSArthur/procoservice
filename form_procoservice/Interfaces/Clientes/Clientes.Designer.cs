@@ -1,7 +1,7 @@
 ﻿
 namespace form_procoservice.Interfaces.Clientes
 {
-    partial class Alterar
+    partial class Clientes
     {
         /// <summary>
         /// Required designer variable.

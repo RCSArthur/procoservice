@@ -7,13 +7,13 @@ using System.Windows.Forms;
 
 namespace form_procoservice.Interfaces.Clientes
 {
-    public partial class Alterar : Form
+    public partial class Clientes : Form
     {
 
         private readonly FirestoreDb _fireDb = FirebaseService.Conectar();
 
         //Construtor para o Banco de Dados
-        public Alterar(FirestoreDb firestoreDb)
+        public Clientes(FirestoreDb firestoreDb)
         {
             _fireDb = firestoreDb;
         }
@@ -21,7 +21,7 @@ namespace form_procoservice.Interfaces.Clientes
         private static readonly FirestoreDb firestoreDb = FirebaseService.Conectar();
         private FirestoreDb database = firestoreDb;
 
-        public Alterar() => InitializeComponent();
+        public Clientes() => InitializeComponent();
 
         private void Clientes_Load(object sender, EventArgs e)
         {

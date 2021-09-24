@@ -44,7 +44,7 @@ namespace form_procoservice
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Alterar());
+            OpenChildForm(new Clientes());
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e) { }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
+
 namespace form_procoservice.Interfaces.Clientes
 {
     public partial class Clientes : Form
@@ -172,14 +173,18 @@ namespace form_procoservice.Interfaces.Clientes
 
         }
 
-        private void Alterar_Load(object sender, EventArgs e)
-        {
 
-        }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            Update_especifico();
+           
+
+            
+        }
+
+        private void Clientes_Load_1(object sender, EventArgs e)
+        {
+            
         }
     }
 }

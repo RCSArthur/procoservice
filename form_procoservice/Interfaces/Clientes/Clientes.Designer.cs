@@ -100,7 +100,7 @@ namespace form_procoservice.Interfaces.Clientes
             this.textBox1.Size = new System.Drawing.Size(100, 23);
             this.textBox1.TabIndex = 5;
             // 
-            // Alterar
+            // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -111,8 +111,9 @@ namespace form_procoservice.Interfaces.Clientes
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Name = "Alterar";
+            this.Name = "Clientes";
             this.Text = "Clientes";
+            this.Load += new System.EventHandler(this.Clientes_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgDados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

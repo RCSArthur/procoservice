@@ -276,6 +276,21 @@ namespace form_procoservice
                 {
                     InvalidarCadastro();
                 }
+                else
+                {
+                    btnCadastrar.Invoke((MethodInvoker)delegate
+                    {
+                        btnCadastrar.Enabled = true;
+                    });
+                    lblVerificaNome.Invoke((MethodInvoker)delegate
+                    {
+                        lblVerificaNome.Visible = false;
+                    });
+                    lblVerificaNome.Invoke((MethodInvoker)delegate
+                    {
+                        lblVerificaNome.Text = "";
+                    });
+                }
             }
             else
             {

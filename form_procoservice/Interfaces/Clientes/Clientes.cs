@@ -127,7 +127,7 @@ namespace form_procoservice.Interfaces.Clientes
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void dgDados_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)

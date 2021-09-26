@@ -82,6 +82,7 @@ namespace form_procoservice.Interfaces.Clientes
             this.dgDados.Size = new System.Drawing.Size(504, 314);
             this.dgDados.TabIndex = 3;
             this.dgDados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            this.dgDados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDados_CellDoubleClick);
             // 
             // button2
             // 

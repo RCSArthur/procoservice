@@ -66,5 +66,10 @@ namespace form_procoservice
             childForm.BringToFront();
             childForm.Show();
         }
+
+        private void btnMaterial_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Materiais());
+        }
     }
 }

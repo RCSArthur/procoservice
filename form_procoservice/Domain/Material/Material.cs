@@ -23,5 +23,10 @@ namespace form_procoservice.Domain.Material
         public double precoUnitario { get; set; }
 
 
+        [FirestoreProperty]
+        public double precoTotal { get; set; }
+
+
+
     }
 }

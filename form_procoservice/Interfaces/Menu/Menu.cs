@@ -1,4 +1,5 @@
-﻿using form_procoservice.Interfaces.Clientes;
+﻿using form_procoservice.interfaces.ConsulMaterial;
+using form_procoservice.Interfaces.Clientes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -70,6 +71,11 @@ namespace form_procoservice
         private void btnMaterial_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Materiais());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ConsulMaterial());
         }
     }
 }

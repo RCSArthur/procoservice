@@ -20,7 +20,7 @@ namespace form_procoservice.interfaces.ConsulMaterial
         private static readonly FirestoreDb firestoreDb = FirebaseService.Conectar();
         private FirestoreDb database = firestoreDb;
         public ConsulMaterial() => InitializeComponent();
- 
+
 
         private void ConsulMaterial_Load(object sender, EventArgs e)
         {
@@ -50,9 +50,9 @@ namespace form_procoservice.interfaces.ConsulMaterial
             foreach (DocumentSnapshot docsnap in snapquery.Documents)
             {
                 Material docs = docsnap.ConvertTo<Material>();
-                if(docsnap.Exists && docs.descricao.Contains(txtNome.Text, StringComparison.OrdinalIgnoreCase))
+                if (docsnap.Exists && docs.descricao.Contains(txtNome.Text, StringComparison.OrdinalIgnoreCase))
                 {
-                   materiais.Rows.Add(docs.descricao, docs.quantidade, docs.precoUnitario, docs.precoTotal);
+                    materiais.Rows.Add(docs.descricao, docs.quantidade, docs.precoUnitario, docs.precoTotal);
                 }
             }
 
@@ -64,6 +64,47 @@ namespace form_procoservice.interfaces.ConsulMaterial
 
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+             deletar_selecionado();
+        }
+
+        private async void deletar_selecionado()
+        {
+
+            var dialogResult = MessageBox.Show("Deseja excluir o material?", "Aviso", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    var query = _fireDb.Collection("materiais");
+                    var snapquery = await query.GetSnapshotAsync();
+
+                    foreach (var docsnap in snapquery.Documents)
+                    {
+                        var docs = docsnap.ConvertTo<Material>();
+                        if (docsnap.Exists && docs.descricao.Contains(txtNome.Text, StringComparison.OrdinalIgnoreCase))
+                        {
+
+                            var docref = _fireDb.Collection("materiais").Document(docsnap.Id);
+                            await docref.DeleteAsync();
+
+                            MessageBox.Show("Material " + docs.descricao + " excluído!");
+                            dgDados.DataSource = null;
+                            break;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro\n" + ex);
+                }
+            }
+        }
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

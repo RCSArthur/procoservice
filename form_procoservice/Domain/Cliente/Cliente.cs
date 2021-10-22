@@ -31,7 +31,6 @@ namespace form_procoservice
         [FirestoreProperty]
         public string cidade { get; set; }
 
-
         [FirestoreProperty]
         public string numero { get; set; }
 

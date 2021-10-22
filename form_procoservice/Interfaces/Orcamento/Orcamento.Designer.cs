@@ -38,19 +38,20 @@ namespace form_procoservice
             this.lblLogin.AutoSize = true;
             this.lblLogin.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblLogin.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLogin.Location = new System.Drawing.Point(212, 206);
+            this.lblLogin.Location = new System.Drawing.Point(187, 155);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(220, 54);
+            this.lblLogin.Size = new System.Drawing.Size(179, 45);
             this.lblLogin.TabIndex = 4;
             this.lblLogin.Text = "Orçamento";
             this.lblLogin.Click += new System.EventHandler(this.lblLogin_Click);
             // 
             // Orcamento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 506);
+            this.ClientSize = new System.Drawing.Size(582, 382);
             this.Controls.Add(this.lblLogin);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Orcamento";
             this.Text = "Orcamento";
             this.ResumeLayout(false);

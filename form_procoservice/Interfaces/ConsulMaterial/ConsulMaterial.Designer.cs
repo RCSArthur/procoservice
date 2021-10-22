@@ -34,6 +34,8 @@ namespace form_procoservice.interfaces.ConsulMaterial
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.txtAlterar = new System.Windows.Forms.TextBox();
+            this.btnAlterar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgDados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,18 +44,18 @@ namespace form_procoservice.interfaces.ConsulMaterial
             this.dgDados.AllowUserToAddRows = false;
             this.dgDados.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgDados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgDados.Location = new System.Drawing.Point(164, 60);
+            this.dgDados.Location = new System.Drawing.Point(36, 41);
             this.dgDados.Name = "dgDados";
             this.dgDados.RowHeadersWidth = 51;
             this.dgDados.RowTemplate.Height = 25;
-            this.dgDados.Size = new System.Drawing.Size(504, 314);
+            this.dgDados.Size = new System.Drawing.Size(504, 300);
             this.dgDados.TabIndex = 9;
             this.dgDados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // txtNome
             // 
             this.txtNome.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNome.Location = new System.Drawing.Point(322, 34);
+            this.txtNome.Location = new System.Drawing.Point(184, 15);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(227, 23);
             this.txtNome.TabIndex = 8;
@@ -63,7 +65,7 @@ namespace form_procoservice.interfaces.ConsulMaterial
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(164, 34);
+            this.label1.Location = new System.Drawing.Point(36, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 17);
             this.label1.TabIndex = 7;
@@ -73,7 +75,7 @@ namespace form_procoservice.interfaces.ConsulMaterial
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(562, 33);
+            this.button1.Location = new System.Drawing.Point(433, 14);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(107, 23);
             this.button1.TabIndex = 6;
@@ -83,21 +85,44 @@ namespace form_procoservice.interfaces.ConsulMaterial
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.button2.Location = new System.Drawing.Point(447, 380);
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button2.Location = new System.Drawing.Point(441, 346);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(102, 31);
+            this.button2.Size = new System.Drawing.Size(102, 23);
             this.button2.TabIndex = 10;
             this.button2.Text = "Excluir";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // txtAlterar
+            // 
+            this.txtAlterar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtAlterar.Location = new System.Drawing.Point(36, 347);
+            this.txtAlterar.Name = "txtAlterar";
+            this.txtAlterar.Size = new System.Drawing.Size(142, 23);
+            this.txtAlterar.TabIndex = 11;
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAlterar.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnAlterar.Location = new System.Drawing.Point(184, 346);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btnAlterar.TabIndex = 12;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
             // ConsulMaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 436);
+            this.ClientSize = new System.Drawing.Size(582, 382);
+            this.Controls.Add(this.btnAlterar);
+            this.Controls.Add(this.txtAlterar);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dgDados);
             this.Controls.Add(this.txtNome);
@@ -105,7 +130,7 @@ namespace form_procoservice.interfaces.ConsulMaterial
             this.Controls.Add(this.button1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ConsulMaterial";
-            this.Text = "Form1";
+            this.Text = "Consulta Material";
             this.Load += new System.EventHandler(this.ConsulMaterial_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgDados)).EndInit();
             this.ResumeLayout(false);
@@ -119,5 +144,7 @@ namespace form_procoservice.interfaces.ConsulMaterial
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtAlterar;
+        private System.Windows.Forms.Button btnAlterar;
     }
 }

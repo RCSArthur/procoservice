@@ -41,7 +41,7 @@ namespace form_procoservice
             // 
             // txtDescr
             // 
-            this.txtDescr.Location = new System.Drawing.Point(132, 69);
+            this.txtDescr.Location = new System.Drawing.Point(132, 66);
             this.txtDescr.Name = "txtDescr";
             this.txtDescr.Size = new System.Drawing.Size(100, 23);
             this.txtDescr.TabIndex = 1;
@@ -49,7 +49,7 @@ namespace form_procoservice
             // 
             // txtQtd
             // 
-            this.txtQtd.Location = new System.Drawing.Point(132, 143);
+            this.txtQtd.Location = new System.Drawing.Point(132, 113);
             this.txtQtd.Name = "txtQtd";
             this.txtQtd.Size = new System.Drawing.Size(100, 23);
             this.txtQtd.TabIndex = 2;
@@ -57,7 +57,7 @@ namespace form_procoservice
             // 
             // txtPreco
             // 
-            this.txtPreco.Location = new System.Drawing.Point(132, 228);
+            this.txtPreco.Location = new System.Drawing.Point(132, 156);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(100, 23);
             this.txtPreco.TabIndex = 3;
@@ -75,7 +75,7 @@ namespace form_procoservice
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 143);
+            this.label3.Location = new System.Drawing.Point(16, 116);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 15);
             this.label3.TabIndex = 5;
@@ -84,7 +84,7 @@ namespace form_procoservice
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 231);
+            this.label4.Location = new System.Drawing.Point(16, 159);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 15);
             this.label4.TabIndex = 6;
@@ -92,9 +92,9 @@ namespace form_procoservice
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(338, 228);
+            this.btnCadastrar.Location = new System.Drawing.Point(401, 319);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCadastrar.Size = new System.Drawing.Size(134, 23);
             this.btnCadastrar.TabIndex = 7;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
@@ -105,7 +105,7 @@ namespace form_procoservice
             this.lblVerificaNome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblVerificaNome.AutoSize = true;
             this.lblVerificaNome.ForeColor = System.Drawing.Color.Red;
-            this.lblVerificaNome.Location = new System.Drawing.Point(290, 72);
+            this.lblVerificaNome.Location = new System.Drawing.Point(239, 70);
             this.lblVerificaNome.Name = "lblVerificaNome";
             this.lblVerificaNome.Size = new System.Drawing.Size(58, 15);
             this.lblVerificaNome.TabIndex = 16;
@@ -116,7 +116,7 @@ namespace form_procoservice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 436);
+            this.ClientSize = new System.Drawing.Size(582, 382);
             this.Controls.Add(this.lblVerificaNome);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.label4);

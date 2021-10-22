@@ -59,7 +59,7 @@ namespace form_procoservice
             // 
             this.lblNome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(76, 104);
+            this.lblNome.Location = new System.Drawing.Point(35, 77);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(40, 15);
             this.lblNome.TabIndex = 0;
@@ -69,7 +69,7 @@ namespace form_procoservice
             // 
             this.lblTelefone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTelefone.AutoSize = true;
-            this.lblTelefone.Location = new System.Drawing.Point(76, 144);
+            this.lblTelefone.Location = new System.Drawing.Point(35, 117);
             this.lblTelefone.Name = "lblTelefone";
             this.lblTelefone.Size = new System.Drawing.Size(51, 15);
             this.lblTelefone.TabIndex = 1;
@@ -79,7 +79,7 @@ namespace form_procoservice
             // 
             this.lblCEP.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCEP.AutoSize = true;
-            this.lblCEP.Location = new System.Drawing.Point(373, 144);
+            this.lblCEP.Location = new System.Drawing.Point(332, 117);
             this.lblCEP.Name = "lblCEP";
             this.lblCEP.Size = new System.Drawing.Size(28, 15);
             this.lblCEP.TabIndex = 2;
@@ -89,7 +89,7 @@ namespace form_procoservice
             // 
             this.lblRua.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblRua.AutoSize = true;
-            this.lblRua.Location = new System.Drawing.Point(76, 187);
+            this.lblRua.Location = new System.Drawing.Point(35, 160);
             this.lblRua.Name = "lblRua";
             this.lblRua.Size = new System.Drawing.Size(27, 15);
             this.lblRua.TabIndex = 3;
@@ -99,7 +99,7 @@ namespace form_procoservice
             // 
             this.lblBairro.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblBairro.AutoSize = true;
-            this.lblBairro.Location = new System.Drawing.Point(76, 224);
+            this.lblBairro.Location = new System.Drawing.Point(35, 197);
             this.lblBairro.Name = "lblBairro";
             this.lblBairro.Size = new System.Drawing.Size(38, 15);
             this.lblBairro.TabIndex = 4;
@@ -109,7 +109,7 @@ namespace form_procoservice
             // 
             this.lblCidade.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCidade.AutoSize = true;
-            this.lblCidade.Location = new System.Drawing.Point(76, 264);
+            this.lblCidade.Location = new System.Drawing.Point(35, 237);
             this.lblCidade.Name = "lblCidade";
             this.lblCidade.Size = new System.Drawing.Size(44, 15);
             this.lblCidade.TabIndex = 5;
@@ -119,7 +119,7 @@ namespace form_procoservice
             // 
             this.lblUF.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblUF.AutoSize = true;
-            this.lblUF.Location = new System.Drawing.Point(373, 183);
+            this.lblUF.Location = new System.Drawing.Point(332, 156);
             this.lblUF.Name = "lblUF";
             this.lblUF.Size = new System.Drawing.Size(21, 15);
             this.lblUF.TabIndex = 6;
@@ -128,7 +128,7 @@ namespace form_procoservice
             // txtNome
             // 
             this.txtNome.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNome.Location = new System.Drawing.Point(157, 101);
+            this.txtNome.Location = new System.Drawing.Point(116, 74);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(197, 23);
             this.txtNome.TabIndex = 0;
@@ -137,7 +137,7 @@ namespace form_procoservice
             // 
             this.txtRua.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtRua.Enabled = false;
-            this.txtRua.Location = new System.Drawing.Point(157, 181);
+            this.txtRua.Location = new System.Drawing.Point(116, 154);
             this.txtRua.Name = "txtRua";
             this.txtRua.ReadOnly = true;
             this.txtRua.Size = new System.Drawing.Size(197, 23);
@@ -147,7 +147,7 @@ namespace form_procoservice
             // 
             this.txtBairro.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtBairro.Enabled = false;
-            this.txtBairro.Location = new System.Drawing.Point(157, 221);
+            this.txtBairro.Location = new System.Drawing.Point(116, 194);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.ReadOnly = true;
             this.txtBairro.Size = new System.Drawing.Size(197, 23);
@@ -157,7 +157,7 @@ namespace form_procoservice
             // 
             this.txtCidade.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCidade.Enabled = false;
-            this.txtCidade.Location = new System.Drawing.Point(157, 261);
+            this.txtCidade.Location = new System.Drawing.Point(116, 234);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.ReadOnly = true;
             this.txtCidade.Size = new System.Drawing.Size(100, 23);
@@ -167,7 +167,7 @@ namespace form_procoservice
             // 
             this.txtUF.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtUF.Enabled = false;
-            this.txtUF.Location = new System.Drawing.Point(417, 181);
+            this.txtUF.Location = new System.Drawing.Point(376, 154);
             this.txtUF.Name = "txtUF";
             this.txtUF.ReadOnly = true;
             this.txtUF.Size = new System.Drawing.Size(100, 23);
@@ -177,7 +177,7 @@ namespace form_procoservice
             // 
             this.lblNumero.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNumero.AutoSize = true;
-            this.lblNumero.Location = new System.Drawing.Point(76, 303);
+            this.lblNumero.Location = new System.Drawing.Point(35, 276);
             this.lblNumero.Name = "lblNumero";
             this.lblNumero.Size = new System.Drawing.Size(51, 15);
             this.lblNumero.TabIndex = 14;
@@ -186,7 +186,7 @@ namespace form_procoservice
             // txtNumero
             // 
             this.txtNumero.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNumero.Location = new System.Drawing.Point(157, 301);
+            this.txtNumero.Location = new System.Drawing.Point(116, 274);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(100, 23);
             this.txtNumero.TabIndex = 3;
@@ -194,7 +194,7 @@ namespace form_procoservice
             // btnCadastrar
             // 
             this.btnCadastrar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCadastrar.Location = new System.Drawing.Point(499, 380);
+            this.btnCadastrar.Location = new System.Drawing.Point(466, 346);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(104, 23);
             this.btnCadastrar.TabIndex = 4;
@@ -205,7 +205,7 @@ namespace form_procoservice
             // mtxtCEP
             // 
             this.mtxtCEP.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mtxtCEP.Location = new System.Drawing.Point(417, 141);
+            this.mtxtCEP.Location = new System.Drawing.Point(376, 114);
             this.mtxtCEP.Mask = "00000-000";
             this.mtxtCEP.Name = "mtxtCEP";
             this.mtxtCEP.Size = new System.Drawing.Size(100, 23);
@@ -216,7 +216,7 @@ namespace form_procoservice
             // mtxtTelefone
             // 
             this.mtxtTelefone.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mtxtTelefone.Location = new System.Drawing.Point(157, 141);
+            this.mtxtTelefone.Location = new System.Drawing.Point(116, 114);
             this.mtxtTelefone.Mask = "(99) 0000-0000";
             this.mtxtTelefone.Name = "mtxtTelefone";
             this.mtxtTelefone.ResetOnPrompt = false;
@@ -230,7 +230,7 @@ namespace form_procoservice
             this.lblVerificaNome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblVerificaNome.AutoSize = true;
             this.lblVerificaNome.ForeColor = System.Drawing.Color.Red;
-            this.lblVerificaNome.Location = new System.Drawing.Point(523, 104);
+            this.lblVerificaNome.Location = new System.Drawing.Point(482, 77);
             this.lblVerificaNome.Name = "lblVerificaNome";
             this.lblVerificaNome.Size = new System.Drawing.Size(58, 15);
             this.lblVerificaNome.TabIndex = 15;
@@ -266,7 +266,7 @@ namespace form_procoservice
             this.gboxTipoPessoa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gboxTipoPessoa.Controls.Add(this.rbtnPessoaFisica);
             this.gboxTipoPessoa.Controls.Add(this.rbtnPessoaJuridica);
-            this.gboxTipoPessoa.Location = new System.Drawing.Point(132, 37);
+            this.gboxTipoPessoa.Location = new System.Drawing.Point(91, 10);
             this.gboxTipoPessoa.Name = "gboxTipoPessoa";
             this.gboxTipoPessoa.Size = new System.Drawing.Size(245, 45);
             this.gboxTipoPessoa.TabIndex = 18;
@@ -275,7 +275,7 @@ namespace form_procoservice
             // mtxtCpfCnpj
             // 
             this.mtxtCpfCnpj.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mtxtCpfCnpj.Location = new System.Drawing.Point(417, 101);
+            this.mtxtCpfCnpj.Location = new System.Drawing.Point(376, 74);
             this.mtxtCpfCnpj.Mask = "000\\.000\\.000-00";
             this.mtxtCpfCnpj.Name = "mtxtCpfCnpj";
             this.mtxtCpfCnpj.Size = new System.Drawing.Size(100, 23);
@@ -287,7 +287,7 @@ namespace form_procoservice
             // 
             this.lblCpfCnpj.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCpfCnpj.AutoSize = true;
-            this.lblCpfCnpj.Location = new System.Drawing.Point(373, 104);
+            this.lblCpfCnpj.Location = new System.Drawing.Point(332, 77);
             this.lblCpfCnpj.Name = "lblCpfCnpj";
             this.lblCpfCnpj.Size = new System.Drawing.Size(28, 15);
             this.lblCpfCnpj.TabIndex = 20;
@@ -297,7 +297,7 @@ namespace form_procoservice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 436);
+            this.ClientSize = new System.Drawing.Size(582, 382);
             this.Controls.Add(this.mtxtCpfCnpj);
             this.Controls.Add(this.lblCpfCnpj);
             this.Controls.Add(this.gboxTipoPessoa);

@@ -31,9 +31,9 @@ namespace form_procoservice.interfaces.ConsulMaterial
             database = firestoreDb;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            Listar_Materiais();
+            await Listar_Materiais();
         }
 
         private async System.Threading.Tasks.Task<object> Listar_Materiais()
@@ -42,21 +42,29 @@ namespace form_procoservice.interfaces.ConsulMaterial
             QuerySnapshot snapquery = await query.GetSnapshotAsync();
 
             DataTable materiais = new();
-            materiais.Columns.Add("Descrição");
-            materiais.Columns.Add("Quantidade");
-            materiais.Columns.Add("Preço unitário");
-            materiais.Columns.Add("Preço total");
+            materiais.Columns.Add("descricao");
+            materiais.Columns.Add("quantidade");
+            materiais.Columns.Add("precoUnitario");
+            materiais.Columns.Add("precoTotal");
 
-            foreach (DocumentSnapshot docsnap in snapquery.Documents)
+            try
             {
-                Material docs = docsnap.ConvertTo<Material>();
-                if (docsnap.Exists && docs.descricao.Contains(txtNome.Text, StringComparison.OrdinalIgnoreCase))
+                foreach (DocumentSnapshot docsnap in snapquery.Documents)
                 {
-                    materiais.Rows.Add(docs.descricao, docs.quantidade, docs.precoUnitario, docs.precoTotal);
+                    Material docs = docsnap.ConvertTo<Material>();
+                    if (docsnap.Exists && docs.descricao.Contains(txtNome.Text, StringComparison.OrdinalIgnoreCase))
+                    {
+                        materiais.Rows.Add(docs.descricao, docs.quantidade, docs.precoUnitario, docs.precoTotal);
+                    }
                 }
-            }
 
-            return dgDados.DataSource = materiais;
+                return dgDados.DataSource = materiais;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro\n" + ex);
+            }
+            return null;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -66,7 +74,7 @@ namespace form_procoservice.interfaces.ConsulMaterial
 
         private void button2_Click(object sender, EventArgs e)
         {
-             deletar_selecionado();
+            deletar_selecionado();
         }
 
         private async void deletar_selecionado()
@@ -102,9 +110,61 @@ namespace form_procoservice.interfaces.ConsulMaterial
                 }
             }
         }
+
+        async void Update_especifico()
+        {
+            int i = dgDados.CurrentRow.Index;
+            int col = dgDados.CurrentCell.ColumnIndex;
+            string nomeCol = dgDados.CurrentCell.OwningColumn.Name;
+            object valorGet = dgDados.Rows[i].Cells[0].Value;
+            object valor = txtAlterar.Text;
+            if (!nomeCol.Equals("descricao"))
+            {
+                valor = int.Parse(valor.ToString());
+            }
+            object documento = "";
+
+            Query cityque = database.Collection("materiais");
+            QuerySnapshot snape = await cityque.GetSnapshotAsync();
+
+            try
+            {
+                foreach (DocumentSnapshot docsnap in snape.Documents)
+                {
+                    Material docs = docsnap.ConvertTo<Material>();
+                    if (valorGet.ToString().Equals(docs.descricao, StringComparison.OrdinalIgnoreCase))
+                    {
+                        documento = docsnap.Id;
+                    }
+                }
+
+                DocumentReference docref = database.Collection("materiais").Document(documento.ToString());
+                Dictionary<string, object> data = new Dictionary<string, object>()
+                {
+                    { nomeCol,  valor }
+                };
+
+                DocumentSnapshot snap = await docref.GetSnapshotAsync();
+                if (snap.Exists)
+                {
+                    await docref.UpdateAsync(data);
+                    txtAlterar.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro\n" + ex);
+            }
+
+        }
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            Update_especifico();
         }
     }
 }

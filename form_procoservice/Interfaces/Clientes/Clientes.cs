@@ -33,9 +33,9 @@ namespace form_procoservice.Interfaces.Clientes
             database = firestoreDb;
         }
 
-        private void button1_ClickAsync(object sender, EventArgs e)
+        private async void button1_ClickAsync(object sender, EventArgs e)
         {
-            Listar_Clientes();
+            await Listar_Clientes();
         }
 
         //Função para pegar dados de cliente e retornar como tabela
@@ -128,7 +128,7 @@ namespace form_procoservice.Interfaces.Clientes
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void dgDados_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
@@ -168,7 +168,7 @@ namespace form_procoservice.Interfaces.Clientes
             DocumentSnapshot snap = await docref.GetSnapshotAsync();
             if (snap.Exists)
             {
-                docref.UpdateAsync(data);
+                await docref.UpdateAsync(data);
             }
 
         }
@@ -177,14 +177,12 @@ namespace form_procoservice.Interfaces.Clientes
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-           
 
-            
         }
 
         private void Clientes_Load_1(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

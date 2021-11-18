@@ -8,25 +8,18 @@ using System.Threading.Tasks;
 namespace form_procoservice.Domain.Material
 {
     [FirestoreData]
-
     class Material
     {
-
         [FirestoreProperty]
         public string descricao { get; set; }
 
         [FirestoreProperty]
         public int quantidade { get; set; }
 
-
         [FirestoreProperty]
         public double precoUnitario { get; set; }
 
-
         [FirestoreProperty]
         public double precoTotal { get; set; }
-
-
-
     }
 }

@@ -56,9 +56,8 @@ namespace form_procoservice
             this.panelSideMenu.Controls.Add(this.panel1);
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelSideMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(219, 421);
+            this.panelSideMenu.Size = new System.Drawing.Size(250, 561);
             this.panelSideMenu.TabIndex = 0;
             this.panelSideMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSideMenu_Paint);
             // 
@@ -72,11 +71,10 @@ namespace form_procoservice
             this.btnConsultaMaterial.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnConsultaMaterial.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultaMaterial.Image")));
             this.btnConsultaMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultaMaterial.Location = new System.Drawing.Point(0, 354);
-            this.btnConsultaMaterial.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnConsultaMaterial.Location = new System.Drawing.Point(0, 472);
             this.btnConsultaMaterial.Name = "btnConsultaMaterial";
-            this.btnConsultaMaterial.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
-            this.btnConsultaMaterial.Size = new System.Drawing.Size(219, 39);
+            this.btnConsultaMaterial.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
+            this.btnConsultaMaterial.Size = new System.Drawing.Size(250, 52);
             this.btnConsultaMaterial.TabIndex = 6;
             this.btnConsultaMaterial.Text = "Consulta Material";
             this.btnConsultaMaterial.UseVisualStyleBackColor = false;
@@ -92,11 +90,10 @@ namespace form_procoservice
             this.btnMaterial.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnMaterial.Image = ((System.Drawing.Image)(resources.GetObject("btnMaterial.Image")));
             this.btnMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMaterial.Location = new System.Drawing.Point(0, 315);
-            this.btnMaterial.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMaterial.Location = new System.Drawing.Point(0, 420);
             this.btnMaterial.Name = "btnMaterial";
-            this.btnMaterial.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
-            this.btnMaterial.Size = new System.Drawing.Size(219, 39);
+            this.btnMaterial.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
+            this.btnMaterial.Size = new System.Drawing.Size(250, 52);
             this.btnMaterial.TabIndex = 5;
             this.btnMaterial.Text = "Material";
             this.btnMaterial.UseVisualStyleBackColor = false;
@@ -112,11 +109,10 @@ namespace form_procoservice
             this.btnClientes.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnClientes.Image")));
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.Location = new System.Drawing.Point(0, 276);
-            this.btnClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClientes.Location = new System.Drawing.Point(0, 368);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
-            this.btnClientes.Size = new System.Drawing.Size(219, 39);
+            this.btnClientes.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
+            this.btnClientes.Size = new System.Drawing.Size(250, 52);
             this.btnClientes.TabIndex = 4;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.UseVisualStyleBackColor = false;
@@ -132,11 +128,10 @@ namespace form_procoservice
             this.btnOrcamento.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnOrcamento.Image = global::form_procoservice.Properties.Resources.baseline_attach_money_white_24dp;
             this.btnOrcamento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrcamento.Location = new System.Drawing.Point(0, 237);
-            this.btnOrcamento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnOrcamento.Location = new System.Drawing.Point(0, 316);
             this.btnOrcamento.Name = "btnOrcamento";
-            this.btnOrcamento.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
-            this.btnOrcamento.Size = new System.Drawing.Size(219, 39);
+            this.btnOrcamento.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
+            this.btnOrcamento.Size = new System.Drawing.Size(250, 52);
             this.btnOrcamento.TabIndex = 3;
             this.btnOrcamento.Text = "Orçamento";
             this.btnOrcamento.UseVisualStyleBackColor = false;
@@ -152,11 +147,10 @@ namespace form_procoservice
             this.btnServicos.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnServicos.Image = global::form_procoservice.Properties.Resources.baseline_design_services_white_24dp;
             this.btnServicos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnServicos.Location = new System.Drawing.Point(0, 198);
-            this.btnServicos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnServicos.Location = new System.Drawing.Point(0, 264);
             this.btnServicos.Name = "btnServicos";
-            this.btnServicos.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
-            this.btnServicos.Size = new System.Drawing.Size(219, 39);
+            this.btnServicos.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
+            this.btnServicos.Size = new System.Drawing.Size(250, 52);
             this.btnServicos.TabIndex = 2;
             this.btnServicos.Text = "Servicos";
             this.btnServicos.UseVisualStyleBackColor = false;
@@ -172,11 +166,10 @@ namespace form_procoservice
             this.btnCadastro.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnCadastro.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastro.Image")));
             this.btnCadastro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastro.Location = new System.Drawing.Point(0, 159);
-            this.btnCadastro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCadastro.Location = new System.Drawing.Point(0, 212);
             this.btnCadastro.Name = "btnCadastro";
-            this.btnCadastro.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
-            this.btnCadastro.Size = new System.Drawing.Size(219, 39);
+            this.btnCadastro.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
+            this.btnCadastro.Size = new System.Drawing.Size(250, 52);
             this.btnCadastro.TabIndex = 1;
             this.btnCadastro.Text = "Cadastro";
             this.btnCadastro.UseVisualStyleBackColor = false;
@@ -192,11 +185,10 @@ namespace form_procoservice
             this.btnHistorico.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnHistorico.Image = global::form_procoservice.Properties.Resources.baseline_history_white_24dp;
             this.btnHistorico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistorico.Location = new System.Drawing.Point(0, 120);
-            this.btnHistorico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHistorico.Location = new System.Drawing.Point(0, 160);
             this.btnHistorico.Name = "btnHistorico";
-            this.btnHistorico.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
-            this.btnHistorico.Size = new System.Drawing.Size(219, 39);
+            this.btnHistorico.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
+            this.btnHistorico.Size = new System.Drawing.Size(250, 52);
             this.btnHistorico.TabIndex = 0;
             this.btnHistorico.Text = "Histórico";
             this.btnHistorico.UseVisualStyleBackColor = false;
@@ -206,9 +198,8 @@ namespace form_procoservice
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(219, 120);
+            this.panel1.Size = new System.Drawing.Size(250, 160);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -216,21 +207,21 @@ namespace form_procoservice
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(219, 0);
-            this.panelChildForm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelChildForm.Location = new System.Drawing.Point(250, 0);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(598, 421);
+            this.panelChildForm.Size = new System.Drawing.Size(684, 561);
             this.panelChildForm.TabIndex = 1;
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(817, 421);
+            this.ClientSize = new System.Drawing.Size(934, 561);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelSideMenu);
-            this.MinimumSize = new System.Drawing.Size(832, 456);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MinimumSize = new System.Drawing.Size(948, 595);
             this.Name = "Menu";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

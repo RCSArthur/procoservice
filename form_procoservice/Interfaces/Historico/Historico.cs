@@ -44,7 +44,6 @@ namespace form_procoservice
             servicos.Columns.Add("prazo_pagamento");
             servicos.Columns.Add("valor");
 
-            MessageBox.Show("Test");
             try
             {
                 foreach (DocumentSnapshot docsnap in snapquery.Documents)

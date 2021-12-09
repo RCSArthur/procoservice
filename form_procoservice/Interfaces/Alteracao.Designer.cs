@@ -1,7 +1,7 @@
 ﻿
-namespace form_procoservice.Interfaces.Alterar
+namespace form_procoservice.Interfaces
 {
-    partial class AlteracaoCliente
+    partial class Alteracao
     {
         /// <summary>
         /// Required designer variable.
@@ -58,7 +58,8 @@ namespace form_procoservice.Interfaces.Alterar
             // mtxtCpfCnpj
             // 
             this.mtxtCpfCnpj.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mtxtCpfCnpj.Location = new System.Drawing.Point(507, 102);
+            this.mtxtCpfCnpj.Enabled = false;
+            this.mtxtCpfCnpj.Location = new System.Drawing.Point(474, 110);
             this.mtxtCpfCnpj.Mask = "000\\.000\\.000-00";
             this.mtxtCpfCnpj.Name = "mtxtCpfCnpj";
             this.mtxtCpfCnpj.Size = new System.Drawing.Size(100, 23);
@@ -68,7 +69,7 @@ namespace form_procoservice.Interfaces.Alterar
             // 
             this.lblCpfCnpj.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCpfCnpj.AutoSize = true;
-            this.lblCpfCnpj.Location = new System.Drawing.Point(463, 105);
+            this.lblCpfCnpj.Location = new System.Drawing.Point(430, 113);
             this.lblCpfCnpj.Name = "lblCpfCnpj";
             this.lblCpfCnpj.Size = new System.Drawing.Size(28, 15);
             this.lblCpfCnpj.TabIndex = 41;
@@ -79,7 +80,8 @@ namespace form_procoservice.Interfaces.Alterar
             this.gboxTipoPessoa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gboxTipoPessoa.Controls.Add(this.rbtnPessoaFisica);
             this.gboxTipoPessoa.Controls.Add(this.rbtnPessoaJuridica);
-            this.gboxTipoPessoa.Location = new System.Drawing.Point(222, 38);
+            this.gboxTipoPessoa.Enabled = false;
+            this.gboxTipoPessoa.Location = new System.Drawing.Point(189, 46);
             this.gboxTipoPessoa.Name = "gboxTipoPessoa";
             this.gboxTipoPessoa.Size = new System.Drawing.Size(245, 45);
             this.gboxTipoPessoa.TabIndex = 39;
@@ -112,7 +114,7 @@ namespace form_procoservice.Interfaces.Alterar
             this.lblVerificaNome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblVerificaNome.AutoSize = true;
             this.lblVerificaNome.ForeColor = System.Drawing.Color.Red;
-            this.lblVerificaNome.Location = new System.Drawing.Point(613, 105);
+            this.lblVerificaNome.Location = new System.Drawing.Point(580, 113);
             this.lblVerificaNome.Name = "lblVerificaNome";
             this.lblVerificaNome.Size = new System.Drawing.Size(58, 15);
             this.lblVerificaNome.TabIndex = 38;
@@ -122,37 +124,41 @@ namespace form_procoservice.Interfaces.Alterar
             // mtxtTelefone
             // 
             this.mtxtTelefone.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mtxtTelefone.Location = new System.Drawing.Point(247, 142);
+            this.mtxtTelefone.Location = new System.Drawing.Point(214, 150);
             this.mtxtTelefone.Mask = "(99) 0000-0000";
             this.mtxtTelefone.Name = "mtxtTelefone";
             this.mtxtTelefone.ResetOnPrompt = false;
             this.mtxtTelefone.ResetOnSpace = false;
             this.mtxtTelefone.Size = new System.Drawing.Size(100, 23);
             this.mtxtTelefone.TabIndex = 23;
+            this.mtxtTelefone.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtxtTelefone_MouseClick);
+            this.mtxtTelefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtTelefone_KeyPress);
             // 
             // mtxtCEP
             // 
             this.mtxtCEP.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mtxtCEP.Location = new System.Drawing.Point(507, 142);
+            this.mtxtCEP.Location = new System.Drawing.Point(474, 150);
             this.mtxtCEP.Mask = "00000-000";
             this.mtxtCEP.Name = "mtxtCEP";
             this.mtxtCEP.Size = new System.Drawing.Size(100, 23);
             this.mtxtCEP.TabIndex = 26;
+            this.mtxtCEP.Leave += new System.EventHandler(this.mtxtCEP_Leave_1);
             // 
             // btnCadastrar
             // 
             this.btnCadastrar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCadastrar.Location = new System.Drawing.Point(589, 381);
+            this.btnCadastrar.Location = new System.Drawing.Point(564, 382);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(104, 23);
             this.btnCadastrar.TabIndex = 30;
-            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.Text = "Alterar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // txtNumero
             // 
             this.txtNumero.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNumero.Location = new System.Drawing.Point(247, 302);
+            this.txtNumero.Location = new System.Drawing.Point(214, 310);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(100, 23);
             this.txtNumero.TabIndex = 28;
@@ -161,7 +167,7 @@ namespace form_procoservice.Interfaces.Alterar
             // 
             this.lblNumero.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNumero.AutoSize = true;
-            this.lblNumero.Location = new System.Drawing.Point(166, 304);
+            this.lblNumero.Location = new System.Drawing.Point(133, 312);
             this.lblNumero.Name = "lblNumero";
             this.lblNumero.Size = new System.Drawing.Size(51, 15);
             this.lblNumero.TabIndex = 37;
@@ -171,7 +177,7 @@ namespace form_procoservice.Interfaces.Alterar
             // 
             this.txtUF.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtUF.Enabled = false;
-            this.txtUF.Location = new System.Drawing.Point(507, 182);
+            this.txtUF.Location = new System.Drawing.Point(474, 190);
             this.txtUF.Name = "txtUF";
             this.txtUF.ReadOnly = true;
             this.txtUF.Size = new System.Drawing.Size(100, 23);
@@ -181,7 +187,7 @@ namespace form_procoservice.Interfaces.Alterar
             // 
             this.txtCidade.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCidade.Enabled = false;
-            this.txtCidade.Location = new System.Drawing.Point(247, 262);
+            this.txtCidade.Location = new System.Drawing.Point(214, 270);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.ReadOnly = true;
             this.txtCidade.Size = new System.Drawing.Size(100, 23);
@@ -191,7 +197,7 @@ namespace form_procoservice.Interfaces.Alterar
             // 
             this.txtBairro.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtBairro.Enabled = false;
-            this.txtBairro.Location = new System.Drawing.Point(247, 222);
+            this.txtBairro.Location = new System.Drawing.Point(214, 230);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.ReadOnly = true;
             this.txtBairro.Size = new System.Drawing.Size(197, 23);
@@ -201,7 +207,7 @@ namespace form_procoservice.Interfaces.Alterar
             // 
             this.txtRua.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtRua.Enabled = false;
-            this.txtRua.Location = new System.Drawing.Point(247, 182);
+            this.txtRua.Location = new System.Drawing.Point(214, 190);
             this.txtRua.Name = "txtRua";
             this.txtRua.ReadOnly = true;
             this.txtRua.Size = new System.Drawing.Size(197, 23);
@@ -210,7 +216,7 @@ namespace form_procoservice.Interfaces.Alterar
             // txtNome
             // 
             this.txtNome.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNome.Location = new System.Drawing.Point(247, 102);
+            this.txtNome.Location = new System.Drawing.Point(214, 110);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(197, 23);
             this.txtNome.TabIndex = 22;
@@ -219,7 +225,7 @@ namespace form_procoservice.Interfaces.Alterar
             // 
             this.lblUF.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblUF.AutoSize = true;
-            this.lblUF.Location = new System.Drawing.Point(463, 184);
+            this.lblUF.Location = new System.Drawing.Point(430, 192);
             this.lblUF.Name = "lblUF";
             this.lblUF.Size = new System.Drawing.Size(21, 15);
             this.lblUF.TabIndex = 32;
@@ -229,7 +235,7 @@ namespace form_procoservice.Interfaces.Alterar
             // 
             this.lblCidade.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCidade.AutoSize = true;
-            this.lblCidade.Location = new System.Drawing.Point(166, 265);
+            this.lblCidade.Location = new System.Drawing.Point(133, 273);
             this.lblCidade.Name = "lblCidade";
             this.lblCidade.Size = new System.Drawing.Size(44, 15);
             this.lblCidade.TabIndex = 31;
@@ -239,7 +245,7 @@ namespace form_procoservice.Interfaces.Alterar
             // 
             this.lblBairro.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblBairro.AutoSize = true;
-            this.lblBairro.Location = new System.Drawing.Point(166, 225);
+            this.lblBairro.Location = new System.Drawing.Point(133, 233);
             this.lblBairro.Name = "lblBairro";
             this.lblBairro.Size = new System.Drawing.Size(38, 15);
             this.lblBairro.TabIndex = 29;
@@ -249,7 +255,7 @@ namespace form_procoservice.Interfaces.Alterar
             // 
             this.lblRua.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblRua.AutoSize = true;
-            this.lblRua.Location = new System.Drawing.Point(166, 188);
+            this.lblRua.Location = new System.Drawing.Point(133, 196);
             this.lblRua.Name = "lblRua";
             this.lblRua.Size = new System.Drawing.Size(27, 15);
             this.lblRua.TabIndex = 27;
@@ -259,7 +265,7 @@ namespace form_procoservice.Interfaces.Alterar
             // 
             this.lblCEP.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCEP.AutoSize = true;
-            this.lblCEP.Location = new System.Drawing.Point(463, 145);
+            this.lblCEP.Location = new System.Drawing.Point(430, 153);
             this.lblCEP.Name = "lblCEP";
             this.lblCEP.Size = new System.Drawing.Size(28, 15);
             this.lblCEP.TabIndex = 25;
@@ -269,9 +275,9 @@ namespace form_procoservice.Interfaces.Alterar
             // 
             this.lblTelefone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTelefone.AutoSize = true;
-            this.lblTelefone.Location = new System.Drawing.Point(166, 145);
+            this.lblTelefone.Location = new System.Drawing.Point(133, 153);
             this.lblTelefone.Name = "lblTelefone";
-            this.lblTelefone.Size = new System.Drawing.Size(53, 15);
+            this.lblTelefone.Size = new System.Drawing.Size(51, 15);
             this.lblTelefone.TabIndex = 24;
             this.lblTelefone.Text = "Telefone";
             // 
@@ -279,13 +285,13 @@ namespace form_procoservice.Interfaces.Alterar
             // 
             this.lblNome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(166, 105);
+            this.lblNome.Location = new System.Drawing.Point(133, 113);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(40, 15);
             this.lblNome.TabIndex = 21;
             this.lblNome.Text = "Nome";
             // 
-            // AlteracaoCliente
+            // Alteracao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -311,8 +317,9 @@ namespace form_procoservice.Interfaces.Alterar
             this.Controls.Add(this.lblCEP);
             this.Controls.Add(this.lblTelefone);
             this.Controls.Add(this.lblNome);
-            this.Name = "AlteracaoCliente";
-            this.Text = "AlteracaoCliente";
+            this.Name = "Alteracao";
+            this.Text = "Alteração cliente";
+            this.Load += new System.EventHandler(this.Alteracao_Load);
             this.gboxTipoPessoa.ResumeLayout(false);
             this.gboxTipoPessoa.PerformLayout();
             this.ResumeLayout(false);

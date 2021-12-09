@@ -52,8 +52,8 @@ namespace form_procoservice
 
             DataTable materiais = new();
             materiais.Columns.Add("descricao");
-            cmbMateriais.ValueMember = "descricao";
-            cmbMateriais.DataSource = materiais;
+            chkListMaterial.ValueMember = "descricao";
+            chkListMaterial.DataSource = materiais;
 
             foreach (DocumentSnapshot docsnap in snapquery.Documents)
             {
@@ -63,7 +63,7 @@ namespace form_procoservice
                     materiais.Rows.Add(docs.descricao);
                 }
             }
-            return cmbMateriais.DataSource = materiais;
+            return chkListMaterial.DataSource = materiais;
 
         }
 
@@ -93,16 +93,22 @@ namespace form_procoservice
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+
             if ((this).Validar())
             {
                 try
                 {
+                    List<string> termsList = new List<string>();
+                    foreach (var item in chkListMaterial.CheckedItems)
+                        termsList.Add(((DataRowView)item)["descricao"].ToString());
+                    var result = String.Join(", ", termsList.ToArray());
                     CollectionReference coll = database.Collection("servicos");
                     Dictionary<string, object> data = new()
                     {
                         { "descricao", txtDescricao.Text },
                         { "cliente", cmbCliente.Text },
-                        { "material", cmbMateriais.Text },
+                        { "cpfCnpj", textBox1.Text },
+                        { "material", result},
                         { "valor", double.Parse(txtValor.Text) },
                         { "data_inicio", dtInicio.Value.ToString("dd/MM/yyyy") },
                         { "data_termino", dtTermino.Value.ToString("dd/MM/yyyy") },
@@ -129,5 +135,132 @@ namespace form_procoservice
                 e.Handled = true;
             }
         }
+
+        private void cmbCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtTermino_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtPagamento_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtInicio_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtValor_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbMateriais_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtEntrega_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbFormaPagamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDescricao_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+        private async void Listar_CpfCnpj()
+        {
+            Query query = _fireDb.Collection("clientes");
+            QuerySnapshot snapquery = await query.GetSnapshotAsync();
+
+
+            string item = cmbCliente.SelectedValue.ToString();
+            foreach (DocumentSnapshot docsnap in snapquery.Documents)
+            {
+                Cliente docs = docsnap.ConvertTo<Cliente>();
+                if (item == docs.nome)
+                {
+                    textBox1.Text = docs.cpfCnpj.ToString();
+                }
+            }
+            
+        }
+    private void cmbCliente_Leave(object sender, EventArgs e)
+            {
+                Listar_CpfCnpj();
+            }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkListMaterial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
+    
 }

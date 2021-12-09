@@ -36,6 +36,7 @@ namespace form_procoservice
             DataTable servicos = new();
             servicos.Columns.Add("descricao");
             servicos.Columns.Add("cliente");
+            servicos.Columns.Add("cpfCnpj");
             servicos.Columns.Add("data_inicio");
             servicos.Columns.Add("data_termino");
             servicos.Columns.Add("forma_pagamento");
@@ -49,9 +50,9 @@ namespace form_procoservice
                 foreach (DocumentSnapshot docsnap in snapquery.Documents)
                 {
                     Servico docs = docsnap.ConvertTo<Servico>();
-                    if (docsnap.Exists && docs.descricao.Contains(txtNome.Text, StringComparison.OrdinalIgnoreCase))
+                    if (docsnap.Exists && docs.cliente.Contains(txtNome.Text, StringComparison.OrdinalIgnoreCase))
                     {
-                        servicos.Rows.Add(docs.descricao, docs.cliente, docs.data_inicio, docs.data_termino, docs.forma_pagamento, docs.material, docs.prazo_entrada, docs.prazo_pagamento, docs.valor);
+                        servicos.Rows.Add(docs.descricao, docs.cliente, docs.cpfCnpj, docs.data_inicio, docs.data_termino, docs.forma_pagamento, docs.material, docs.prazo_entrada, docs.prazo_pagamento, docs.valor);
                     }
                 }
                 return dgDados.DataSource = servicos;
@@ -107,52 +108,108 @@ namespace form_procoservice
             }
         }
 
-        async void Update_especifico()
+
+
+        string descricao;
+        string cliente;
+        string cpfCnpj;
+        string material;
+        double valor2;
+        string data_inicio;
+        string data_termino;
+        string prazo_entrada;
+        string prazo_pagamento;
+        string forma_pagamento;
+
+        async void LevaInformacao()
         {
+
+
             int i = dgDados.CurrentRow.Index;
             int col = dgDados.CurrentCell.ColumnIndex;
-            string nomeCol = dgDados.CurrentCell.OwningColumn.Name;
-            object valorGet = dgDados.Rows[i].Cells[0].Value;
-            object valor = txtAlterar.Text;
-            if (!nomeCol.Equals("descricao"))
-            {
-                valor = int.Parse(valor.ToString());
-            }
+            String nomeCol = dgDados.CurrentCell.OwningColumn.Name;
+            object valor = "";
+            object valorGet = dgDados.Rows[i].Cells[2].Value;
             object documento = "";
 
             Query cityque = _database.Collection("servicos");
             QuerySnapshot snape = await cityque.GetSnapshotAsync();
 
-            try
+            foreach (DocumentSnapshot docsnap in snape.Documents)
             {
-                foreach (DocumentSnapshot docsnap in snape.Documents)
+                Servico docs = docsnap.ConvertTo<Servico>();
+                if (valorGet.ToString() == docs.cpfCnpj)
                 {
-                    Servico docs = docsnap.ConvertTo<Servico>();
-                    if (valorGet.ToString().Equals(docs.descricao, StringComparison.OrdinalIgnoreCase))
-                    {
-                        documento = docsnap.Id;
-                    }
+
+                    descricao = docs.descricao;
+                    cliente= docs.cliente;
+                    cpfCnpj = docs.cpfCnpj;
+                    material = docs.material;
+                    valor2 = docs.valor;
+                    data_inicio = docs.data_inicio;
+                    data_termino = docs.data_termino;
+                    prazo_entrada = docs.prazo_entrada;
+                    prazo_pagamento = docs.prazo_pagamento;
+                    forma_pagamento = docs.forma_pagamento;
+                    
                 }
 
-                DocumentReference docref = _database.Collection("servicos").Document(documento.ToString());
-                Dictionary<string, object> data = new Dictionary<string, object>()
-                {
-                    { nomeCol,  valor }
-                };
+            }
 
-                DocumentSnapshot snap = await docref.GetSnapshotAsync();
-                if (snap.Exists)
-                {
-                    await docref.UpdateAsync(data);
-                    txtAlterar.Clear();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro\n" + ex);
-            }
+            Interfaces.Alterarservico alterar = new Interfaces.Alterarservico(descricao, cliente, cpfCnpj, material, valor2, data_inicio, data_termino, prazo_entrada, prazo_pagamento, forma_pagamento);
+            alterar.Show();
+
+
 
         }
+
+
+
+        //async void Update_especifico()
+        //{
+        //    int i = dgDados.CurrentRow.Index;
+        //    int col = dgDados.CurrentCell.ColumnIndex;
+        //    string nomeCol = dgDados.CurrentCell.OwningColumn.Name;
+        //    object valorGet = dgDados.Rows[i].Cells[0].Value;
+        //    if (!nomeCol.Equals("descricao"))
+        //    {
+        //        valor = int.Parse(valor.ToString());
+        //    }
+        //    object documento = "";
+
+        //    Query cityque = _database.Collection("servicos");
+        //    QuerySnapshot snape = await cityque.GetSnapshotAsync();
+
+        //    try
+        //    {
+        //        foreach (DocumentSnapshot docsnap in snape.Documents)
+        //        {
+        //            Servico docs = docsnap.ConvertTo<Servico>();
+        //            if (valorGet.ToString().Equals(docs.descricao, StringComparison.OrdinalIgnoreCase))
+        //            {
+        //                documento = docsnap.Id;
+        //            }
+        //        }
+
+        //        DocumentReference docref = _database.Collection("servicos").Document(documento.ToString());
+        //        Dictionary<string, object> data = new Dictionary<string, object>()
+        //        {
+        //            { nomeCol,  valor }
+        //        };
+
+        //        DocumentSnapshot snap = await docref.GetSnapshotAsync();
+        //        if (snap.Exists)
+        //        {
+        //            await docref.UpdateAsync(data);
+        //            txtAlterar.Clear();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Erro\n" + ex);
+        //    }
+
+        //}
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -160,7 +217,13 @@ namespace form_procoservice
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            Update_especifico();
+
+            LevaInformacao();
+        }
+
+        private void dgDados_Click(object sender, EventArgs e)
+        {
+            btnAlterar.Enabled = true;
         }
     }
 }

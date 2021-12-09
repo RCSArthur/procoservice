@@ -30,7 +30,6 @@ namespace form_procoservice
         private void InitializeComponent()
         {
             this.btnAlterar = new System.Windows.Forms.Button();
-            this.txtAlterar = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.dgDados = new System.Windows.Forms.DataGridView();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -43,21 +42,14 @@ namespace form_procoservice
             // 
             this.btnAlterar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAlterar.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnAlterar.Location = new System.Drawing.Point(185, 344);
+            this.btnAlterar.Enabled = false;
+            this.btnAlterar.Location = new System.Drawing.Point(37, 345);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
             this.btnAlterar.TabIndex = 19;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
-            // 
-            // txtAlterar
-            // 
-            this.txtAlterar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAlterar.Location = new System.Drawing.Point(37, 345);
-            this.txtAlterar.Name = "txtAlterar";
-            this.txtAlterar.Size = new System.Drawing.Size(142, 23);
-            this.txtAlterar.TabIndex = 18;
             // 
             // button2
             // 
@@ -83,6 +75,7 @@ namespace form_procoservice
             this.dgDados.RowTemplate.Height = 25;
             this.dgDados.Size = new System.Drawing.Size(504, 300);
             this.dgDados.TabIndex = 16;
+            this.dgDados.Click += new System.EventHandler(this.dgDados_Click);
             // 
             // txtNome
             // 
@@ -120,7 +113,6 @@ namespace form_procoservice
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(581, 380);
             this.Controls.Add(this.btnAlterar);
-            this.Controls.Add(this.txtAlterar);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dgDados);
             this.Controls.Add(this.txtNome);
@@ -139,7 +131,6 @@ namespace form_procoservice
         #endregion
 
         private System.Windows.Forms.Button btnAlterar;
-        private System.Windows.Forms.TextBox txtAlterar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dgDados;
         private System.Windows.Forms.TextBox txtNome;

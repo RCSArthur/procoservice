@@ -64,6 +64,7 @@ namespace form_procoservice
             this.lblNome.Size = new System.Drawing.Size(40, 15);
             this.lblNome.TabIndex = 0;
             this.lblNome.Text = "Nome";
+            this.lblNome.Click += new System.EventHandler(this.lblNome_Click);
             // 
             // lblTelefone
             // 
@@ -74,6 +75,7 @@ namespace form_procoservice
             this.lblTelefone.Size = new System.Drawing.Size(51, 15);
             this.lblTelefone.TabIndex = 1;
             this.lblTelefone.Text = "Telefone";
+            this.lblTelefone.Click += new System.EventHandler(this.lblTelefone_Click);
             // 
             // lblCEP
             // 
@@ -84,6 +86,7 @@ namespace form_procoservice
             this.lblCEP.Size = new System.Drawing.Size(28, 15);
             this.lblCEP.TabIndex = 2;
             this.lblCEP.Text = "CEP";
+            this.lblCEP.Click += new System.EventHandler(this.lblCEP_Click);
             // 
             // lblRua
             // 
@@ -94,6 +97,7 @@ namespace form_procoservice
             this.lblRua.Size = new System.Drawing.Size(27, 15);
             this.lblRua.TabIndex = 3;
             this.lblRua.Text = "Rua";
+            this.lblRua.Click += new System.EventHandler(this.lblRua_Click);
             // 
             // lblBairro
             // 
@@ -104,6 +108,7 @@ namespace form_procoservice
             this.lblBairro.Size = new System.Drawing.Size(38, 15);
             this.lblBairro.TabIndex = 4;
             this.lblBairro.Text = "Bairro";
+            this.lblBairro.Click += new System.EventHandler(this.lblBairro_Click);
             // 
             // lblCidade
             // 
@@ -114,6 +119,7 @@ namespace form_procoservice
             this.lblCidade.Size = new System.Drawing.Size(44, 15);
             this.lblCidade.TabIndex = 5;
             this.lblCidade.Text = "Cidade";
+            this.lblCidade.Click += new System.EventHandler(this.lblCidade_Click);
             // 
             // lblUF
             // 
@@ -124,6 +130,7 @@ namespace form_procoservice
             this.lblUF.Size = new System.Drawing.Size(21, 15);
             this.lblUF.TabIndex = 6;
             this.lblUF.Text = "UF";
+            this.lblUF.Click += new System.EventHandler(this.lblUF_Click);
             // 
             // txtNome
             // 
@@ -132,6 +139,7 @@ namespace form_procoservice
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(197, 23);
             this.txtNome.TabIndex = 0;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // txtRua
             // 
@@ -142,6 +150,7 @@ namespace form_procoservice
             this.txtRua.ReadOnly = true;
             this.txtRua.Size = new System.Drawing.Size(197, 23);
             this.txtRua.TabIndex = 10;
+            this.txtRua.TextChanged += new System.EventHandler(this.txtRua_TextChanged);
             // 
             // txtBairro
             // 
@@ -152,6 +161,7 @@ namespace form_procoservice
             this.txtBairro.ReadOnly = true;
             this.txtBairro.Size = new System.Drawing.Size(197, 23);
             this.txtBairro.TabIndex = 11;
+            this.txtBairro.TextChanged += new System.EventHandler(this.txtBairro_TextChanged);
             // 
             // txtCidade
             // 
@@ -162,6 +172,7 @@ namespace form_procoservice
             this.txtCidade.ReadOnly = true;
             this.txtCidade.Size = new System.Drawing.Size(100, 23);
             this.txtCidade.TabIndex = 12;
+            this.txtCidade.TextChanged += new System.EventHandler(this.txtCidade_TextChanged);
             // 
             // txtUF
             // 
@@ -172,6 +183,7 @@ namespace form_procoservice
             this.txtUF.ReadOnly = true;
             this.txtUF.Size = new System.Drawing.Size(100, 23);
             this.txtUF.TabIndex = 13;
+            this.txtUF.TextChanged += new System.EventHandler(this.txtUF_TextChanged);
             // 
             // lblNumero
             // 
@@ -182,6 +194,7 @@ namespace form_procoservice
             this.lblNumero.Size = new System.Drawing.Size(51, 15);
             this.lblNumero.TabIndex = 14;
             this.lblNumero.Text = "Número";
+            this.lblNumero.Click += new System.EventHandler(this.lblNumero_Click);
             // 
             // txtNumero
             // 
@@ -190,6 +203,7 @@ namespace form_procoservice
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(100, 23);
             this.txtNumero.TabIndex = 3;
+            this.txtNumero.TextChanged += new System.EventHandler(this.txtNumero_TextChanged);
             // 
             // btnCadastrar
             // 
@@ -210,6 +224,7 @@ namespace form_procoservice
             this.mtxtCEP.Name = "mtxtCEP";
             this.mtxtCEP.Size = new System.Drawing.Size(100, 23);
             this.mtxtCEP.TabIndex = 2;
+            this.mtxtCEP.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mtxtCEP_MaskInputRejected);
             this.mtxtCEP.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtxtCEP_MouseClick);
             this.mtxtCEP.Leave += new System.EventHandler(this.mtxtCEP_Leave);
             // 
@@ -223,6 +238,7 @@ namespace form_procoservice
             this.mtxtTelefone.ResetOnSpace = false;
             this.mtxtTelefone.Size = new System.Drawing.Size(100, 23);
             this.mtxtTelefone.TabIndex = 1;
+            this.mtxtTelefone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mtxtTelefone_MaskInputRejected);
             this.mtxtTelefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtTelefone_KeyPress);
             // 
             // lblVerificaNome
@@ -236,6 +252,7 @@ namespace form_procoservice
             this.lblVerificaNome.TabIndex = 15;
             this.lblVerificaNome.Text = "label_erro";
             this.lblVerificaNome.Visible = false;
+            this.lblVerificaNome.Click += new System.EventHandler(this.lblVerificaNome_Click);
             // 
             // rbtnPessoaFisica
             // 
@@ -271,6 +288,7 @@ namespace form_procoservice
             this.gboxTipoPessoa.Size = new System.Drawing.Size(245, 45);
             this.gboxTipoPessoa.TabIndex = 18;
             this.gboxTipoPessoa.TabStop = false;
+            this.gboxTipoPessoa.Enter += new System.EventHandler(this.gboxTipoPessoa_Enter);
             // 
             // mtxtCpfCnpj
             // 
@@ -280,6 +298,7 @@ namespace form_procoservice
             this.mtxtCpfCnpj.Name = "mtxtCpfCnpj";
             this.mtxtCpfCnpj.Size = new System.Drawing.Size(100, 23);
             this.mtxtCpfCnpj.TabIndex = 19;
+            this.mtxtCpfCnpj.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mtxtCpfCnpj_MaskInputRejected);
             this.mtxtCpfCnpj.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtxtCpfCnpj_MouseClick);
             this.mtxtCpfCnpj.TextChanged += new System.EventHandler(this.mtxtCpfCnpj_TextChanged);
             // 
@@ -292,6 +311,7 @@ namespace form_procoservice
             this.lblCpfCnpj.Size = new System.Drawing.Size(28, 15);
             this.lblCpfCnpj.TabIndex = 20;
             this.lblCpfCnpj.Text = "CPF";
+            this.lblCpfCnpj.Click += new System.EventHandler(this.lblCpfCnpj_Click);
             // 
             // Cadastro
             // 

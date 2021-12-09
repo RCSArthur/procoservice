@@ -82,7 +82,7 @@ namespace form_procoservice.Interfaces.Clientes
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-
+            button2.Enabled = true;
         }
 
         private void label1_Click_1(object sender, EventArgs e)
@@ -136,15 +136,27 @@ namespace form_procoservice.Interfaces.Clientes
 
         }
 
-        async void Update_especifico()
-        {
+        
 
+        String cpfCnpj;
+        String nome;
+        String telefone;
+        String rua;
+        String numero;
+        String bairro;
+        String cidade;
+        String Uf;
+        String cep;
+        String excluido;
+        async void LevaInformacao()
+        {
+           
+            
             int i = dgDados.CurrentRow.Index;
             int col = dgDados.CurrentCell.ColumnIndex;
             String nomeCol = dgDados.CurrentCell.OwningColumn.Name;
             object valor = "";
             object valorGet = dgDados.Rows[i].Cells[1].Value;
-            valor = textBox1.Text;
             object documento = "";
 
             Query cityque = database.Collection("clientes");
@@ -155,34 +167,81 @@ namespace form_procoservice.Interfaces.Clientes
                 Cliente docs = docsnap.ConvertTo<Cliente>();
                 if (valorGet.ToString() == docs.cpfCnpj)
                 {
-                    documento = docsnap.Id;
+
+                    cpfCnpj = docs.cpfCnpj;
+                    nome = docs.nome;
+                    telefone = docs.telefone;
+                    rua = docs.rua;
+                    numero = docs.numero;
+                    bairro = docs.bairro;
+                    cidade = docs.cidade;
+                    Uf = docs.UF;
+                    cep = docs.cep;
                 }
+
             }
 
-            DocumentReference docref = database.Collection("clientes").Document(documento.ToString());
-            Dictionary<string, object> data = new Dictionary<string, object>()
-            {
-                { nomeCol,  valor}
-            };
+            Alteracao alterao = new Alteracao(cpfCnpj, nome, telefone, rua, numero, bairro, cidade, Uf, cep);
+            alterao.Show();
 
-            DocumentSnapshot snap = await docref.GetSnapshotAsync();
-            if (snap.Exists)
-            {
-                await docref.UpdateAsync(data);
-            }
+            
 
         }
 
-
-
         private void button2_Click_1(object sender, EventArgs e)
         {
+            try
+            {
+                LevaInformacao();
+            }
 
+            catch(Exception ex)
+            {
+                MessageBox.Show("Selecione o cliente que deseja alterar.");
+            }
         }
 
         private void Clientes_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private async void deletar_selecionado()
+        {
+
+            var dialogResult = MessageBox.Show("Deseja excluir o serviço?", "Aviso", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    var query = database.Collection("clientes");
+                    var snapquery = await query.GetSnapshotAsync();
+
+                    foreach (var docsnap in snapquery.Documents)
+                    {
+                        var docs = docsnap.ConvertTo<Cliente>();
+                        if (docsnap.Exists && docs.nome.Contains(txtNome.Text, StringComparison.OrdinalIgnoreCase))
+                        {
+
+                            var docref = database.Collection("clientes").Document(docsnap.Id);
+                            await docref.DeleteAsync();
+
+                            MessageBox.Show("Cliente " + docs.nome + " excluído!");
+                            dgDados.DataSource = null;
+                            break;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro\n" + ex);
+                }
+            }
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            deletar_selecionado();
         }
     }
 }

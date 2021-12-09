@@ -1,10 +1,10 @@
-﻿using System;
+﻿using form_procoservice.Domain.Material;
+using form_procoservice.Utils;
 using Google.Cloud.Firestore;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
-using form_procoservice.Utils;
-using form_procoservice.Domain.Material;
 
 namespace form_procoservice.interfaces.ConsulMaterial
 {
@@ -111,60 +111,75 @@ namespace form_procoservice.interfaces.ConsulMaterial
             }
         }
 
-        async void Update_especifico()
-        {
-            int i = dgDados.CurrentRow.Index;
-            int col = dgDados.CurrentCell.ColumnIndex;
-            string nomeCol = dgDados.CurrentCell.OwningColumn.Name;
-            object valorGet = dgDados.Rows[i].Cells[0].Value;
-            object valor = txtAlterar.Text;
-            if (!nomeCol.Equals("descricao"))
-            {
-                valor = int.Parse(valor.ToString());
-            }
-            object documento = "";
+     
 
-            Query cityque = database.Collection("materiais");
-            QuerySnapshot snape = await cityque.GetSnapshotAsync();
+        string descricao;
+        string qtd;
+        string precoUnit;
+        string precoTotal;
+
+
+        async void LevaInformacao()
+        {
 
             try
             {
+                int i = dgDados.CurrentRow.Index;
+                int col = dgDados.CurrentCell.ColumnIndex;
+                String nomeCol = dgDados.CurrentCell.OwningColumn.Name;
+                object valor = "";
+                object valorGet = dgDados.Rows[i].Cells[0].Value;
+                object documento = "";
+
+                Query cityque = database.Collection("materiais");
+                QuerySnapshot snape = await cityque.GetSnapshotAsync();
                 foreach (DocumentSnapshot docsnap in snape.Documents)
                 {
                     Material docs = docsnap.ConvertTo<Material>();
-                    if (valorGet.ToString().Equals(docs.descricao, StringComparison.OrdinalIgnoreCase))
+                    if (valorGet.ToString() == docs.descricao)
                     {
-                        documento = docsnap.Id;
+                        descricao = docs.descricao;
+                        qtd = docs.quantidade.ToString();
+                        precoUnit = docs.precoUnitario.ToString();
+                        precoTotal = docs.precoTotal.ToString();
+
                     }
+
                 }
 
-                DocumentReference docref = database.Collection("materiais").Document(documento.ToString());
-                Dictionary<string, object> data = new Dictionary<string, object>()
-                {
-                    { nomeCol,  valor }
-                };
-
-                DocumentSnapshot snap = await docref.GetSnapshotAsync();
-                if (snap.Exists)
-                {
-                    await docref.UpdateAsync(data);
-                    txtAlterar.Clear();
-                }
+                Interfaces.Alterarmaterial alteraMaterial = new Interfaces.Alterarmaterial(descricao, qtd, precoUnit, precoTotal);
+                alteraMaterial.Show();
             }
-            catch (Exception ex)
+
+            catch(Exception ex)
             {
-                MessageBox.Show("Erro\n" + ex);
+                MessageBox.Show("Por favor, selecione o material que deseja alterar.");
             }
 
         }
+
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-
+            button3.Enabled = true;
         }
-
+       
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            Update_especifico();
+           
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LevaInformacao();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

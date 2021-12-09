@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using form_procoservice.Domain.Material;
+using System.Globalization;
 
 namespace form_procoservice
 {
@@ -24,6 +25,10 @@ namespace form_procoservice
             txtDescr.Focus();
         }
 
+        double qtd;
+        double unit;
+        double total;
+
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
 
@@ -31,13 +36,18 @@ namespace form_procoservice
             {
                 try
                 {
+                    qtd = Convert.ToDouble(txtQtd.Text, CultureInfo.InvariantCulture);
+                    unit = Convert.ToDouble(txtPreco.Text, CultureInfo.InvariantCulture);
+                    total = qtd * unit;
+                    MessageBox.Show(unit.ToString("00.00"), total.ToString("00.00"));
                     CollectionReference coll = database.Collection("materiais");
                     Dictionary<string, object> data = new()
                     {
+                        
                         { "descricao", txtDescr.Text },
                         { "quantidade", int.Parse(txtQtd.Text) },
-                        { "precoUnitario", double.Parse(txtPreco.Text) },
-                        { "precoTotal", int.Parse(txtQtd.Text) * double.Parse(txtPreco.Text) },
+                        { "precoUnitario", unit },
+                        { "precoTotal", total },
                     };
                     coll.AddAsync(data);
                     MessageBox.Show("Material " + txtDescr.Text + " criado com sucesso!");

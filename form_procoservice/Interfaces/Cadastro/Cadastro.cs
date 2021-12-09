@@ -319,5 +319,105 @@ namespace form_procoservice
         {
             return rbtnPessoaFisica.Checked;
         }
+
+        private void lblTelefone_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCEP_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblRua_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblBairro_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCidade_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblUF_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtRua_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBairro_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCidade_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUF_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNumero_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNumero_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mtxtCEP_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void mtxtTelefone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void lblVerificaNome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gboxTipoPessoa_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mtxtCpfCnpj_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void lblCpfCnpj_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

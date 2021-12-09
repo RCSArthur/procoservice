@@ -14,6 +14,9 @@ namespace form_procoservice.Domain.Servico
         public string cliente { get; set; }
 
         [FirestoreProperty]
+        public string cpfCnpj { get; set; }
+
+        [FirestoreProperty]
         public string data_inicio { get; set; }
 
         [FirestoreProperty]

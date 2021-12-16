@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -46,6 +47,7 @@ namespace form_procoservice.Interfaces
         {
             Listar_Materiais();
             Checados();
+
         }
 
         async void Update_especifico()
@@ -90,7 +92,7 @@ namespace form_procoservice.Interfaces
             {
                 await docref.UpdateAsync(data);
             }
-            MessageBox.Show("Alteração realizada com sucesso!");
+            MessageBox.Show("Alteração realizada com sucesso!", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
@@ -112,32 +114,51 @@ namespace form_procoservice.Interfaces
                 if (docsnap.Exists)
                 {
                     materiais.Rows.Add(docs.descricao);
-                    materiaisTodos.Add(docs.descricao.ToString());
+                    materiaisTodos.Add(docs.descricao);
                 }
             }
             return chkListMaterial.DataSource = materiais;
+
 
         }
 
         private void Checados()
         {
-            MessageBox.Show("entei em checados");
             string material = textBox2.Text;
-            string[] opcoes = material.Split(',').Select(x => x.Trim()).ToArray();
             int index = -1;
-            foreach (var item in materiaisTodos)
+            MessageBox.Show("Pedido do cliente " + cmbCliente.Text +".", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (material.Contains(","))
             {
-                index = index + 1;
-                foreach (var item2 in opcoes)
+                string[] opcoes = material.Split(',').Select(x => x.Trim()).ToArray();
+                foreach (var item in materiaisTodos)
                 {
+                    index = index + 1;
+                    foreach (var item2 in opcoes)
+                    {
 
-                    if (item == item2)
+                        if (item == item2)
                         {
                             chkListMaterial.SetItemCheckState(index, CheckState.Checked);
                         }
                     }
+
+
+                }
+            }
+            else
+            {
+                foreach (var item in materiaisTodos)
+                {
+                    index = index + 1;
+                  
+
+                        if (material == item)
+                        {
+                            chkListMaterial.SetItemCheckState(index, CheckState.Checked);
+                        }
                     
-                
+
+                }
             }
         }
 

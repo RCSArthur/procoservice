@@ -29,6 +29,7 @@ namespace form_procoservice.interfaces.ConsulMaterial
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsulMaterial));
             this.dgDados = new System.Windows.Forms.DataGridView();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -97,8 +98,9 @@ namespace form_procoservice.interfaces.ConsulMaterial
             // 
             // button3
             // 
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(36, 361);
+            this.button3.Location = new System.Drawing.Point(36, 360);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(84, 23);
             this.button3.TabIndex = 12;
@@ -117,6 +119,7 @@ namespace form_procoservice.interfaces.ConsulMaterial
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ConsulMaterial";
             this.Text = "Consulta Material";

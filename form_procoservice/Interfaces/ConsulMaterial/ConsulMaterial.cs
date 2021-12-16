@@ -35,7 +35,7 @@ namespace form_procoservice.interfaces.ConsulMaterial
         {
             await Listar_Materiais();
         }
-
+        String descr;
         private async System.Threading.Tasks.Task<object> Listar_Materiais()
         {
             Query query = _fireDb.Collection("materiais");
@@ -52,8 +52,10 @@ namespace form_procoservice.interfaces.ConsulMaterial
                 foreach (DocumentSnapshot docsnap in snapquery.Documents)
                 {
                     Material docs = docsnap.ConvertTo<Material>();
+
                     if (docsnap.Exists && docs.descricao.Contains(txtNome.Text, StringComparison.OrdinalIgnoreCase))
                     {
+                        
                         materiais.Rows.Add(docs.descricao, docs.quantidade, docs.precoUnitario, docs.precoTotal);
                     }
                 }
@@ -62,7 +64,7 @@ namespace form_procoservice.interfaces.ConsulMaterial
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro\n" + ex);
+                MessageBox.Show("Erro\n" + ex, "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return null;
         }
@@ -79,8 +81,13 @@ namespace form_procoservice.interfaces.ConsulMaterial
 
         private async void deletar_selecionado()
         {
+            int i = dgDados.CurrentRow.Index;
+            int col = dgDados.CurrentCell.ColumnIndex;
+            String nomeCol = dgDados.CurrentCell.OwningColumn.Name;
+            object valor = "";
+            object valorGet = dgDados.Rows[i].Cells[0].Value;
 
-            var dialogResult = MessageBox.Show("Deseja excluir o material?", "Aviso", MessageBoxButtons.YesNo);
+            var dialogResult = MessageBox.Show("Deseja excluir o material " + valorGet.ToString()+"?", "Procoservice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -92,13 +99,13 @@ namespace form_procoservice.interfaces.ConsulMaterial
                     foreach (var docsnap in snapquery.Documents)
                     {
                         var docs = docsnap.ConvertTo<Material>();
-                        if (docsnap.Exists && docs.descricao.Contains(txtNome.Text, StringComparison.OrdinalIgnoreCase))
+                        if (docsnap.Exists && docs.descricao.Contains(valorGet.ToString(), StringComparison.OrdinalIgnoreCase))
                         {
 
                             var docref = _fireDb.Collection("materiais").Document(docsnap.Id);
                             await docref.DeleteAsync();
 
-                            MessageBox.Show("Material " + docs.descricao + " excluído!");
+                            MessageBox.Show("Material " + valorGet.ToString() + " excluído!", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             dgDados.DataSource = null;
                             break;
                         }
@@ -106,7 +113,7 @@ namespace form_procoservice.interfaces.ConsulMaterial
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro\n" + ex);
+                    MessageBox.Show("Erro\n" + ex, "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -153,7 +160,7 @@ namespace form_procoservice.interfaces.ConsulMaterial
 
             catch(Exception ex)
             {
-                MessageBox.Show("Por favor, selecione o material que deseja alterar.");
+                MessageBox.Show("Por favor, selecione o material que deseja alterar.", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
@@ -178,7 +185,7 @@ namespace form_procoservice.interfaces.ConsulMaterial
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

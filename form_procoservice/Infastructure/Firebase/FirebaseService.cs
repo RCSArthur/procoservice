@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace form_procoservice.Utils
 {
@@ -19,7 +20,7 @@ namespace form_procoservice.Utils
             }
             catch (Exception e)
             {
-                System.Windows.Forms.MessageBox.Show("Erro ao conectar com o Firebase\n" + e);
+                MessageBox.Show("Erro ao conectar com o Firebase\n" + e, "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return null;
         }

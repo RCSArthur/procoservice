@@ -29,6 +29,7 @@ namespace form_procoservice
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro));
             this.lblNome = new System.Windows.Forms.Label();
             this.lblTelefone = new System.Windows.Forms.Label();
             this.lblCEP = new System.Windows.Forms.Label();
@@ -339,6 +340,7 @@ namespace form_procoservice
             this.Controls.Add(this.lblCEP);
             this.Controls.Add(this.lblTelefone);
             this.Controls.Add(this.lblNome);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Cadastro";
             this.ShowIcon = false;

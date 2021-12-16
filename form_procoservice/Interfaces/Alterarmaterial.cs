@@ -51,7 +51,6 @@ namespace form_procoservice.Interfaces
                 Material docs = docsnap.ConvertTo<Material>();
                 if (valorAntigo.ToString().Equals(docs.descricao, StringComparison.OrdinalIgnoreCase))
                 {
-                    MessageBox.Show(docs.descricao);
                     documento = docsnap.Id;
                 }
             }
@@ -71,7 +70,7 @@ namespace form_procoservice.Interfaces
             {
                 await docref.UpdateAsync(data);
             }
-            MessageBox.Show("Alteração realizada com sucesso!");
+            MessageBox.Show("Alteração realizada com sucesso!","Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
@@ -82,7 +81,6 @@ namespace form_procoservice.Interfaces
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("teste");
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -100,7 +98,6 @@ namespace form_procoservice.Interfaces
             try
             {
                 double precoUnit = double.Parse(txtPreco.Text);
-                MessageBox.Show(precoUnit.ToString());
                 int qtd = Int32.Parse(txtQtd.Text);
 
                 double precoTotal = precoUnit * qtd;
@@ -110,7 +107,7 @@ namespace form_procoservice.Interfaces
 
             catch(Exception ex)
             {
-                MessageBox.Show("Preencha o campo de quantidade e valor!");
+                MessageBox.Show("Preencha o campo de quantidade e valor!", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

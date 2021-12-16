@@ -39,7 +39,10 @@ namespace form_procoservice
             this.btnHistorico = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelChildForm = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelSideMenu.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSideMenu
@@ -68,7 +71,7 @@ namespace form_procoservice
             this.btnConsultaMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultaMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnConsultaMaterial.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnConsultaMaterial.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultaMaterial.Image")));
+            this.btnConsultaMaterial.Image = global::form_procoservice.Properties.Resources.baseline_inventory_2_white_24dp;
             this.btnConsultaMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultaMaterial.Location = new System.Drawing.Point(0, 315);
             this.btnConsultaMaterial.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -182,10 +185,13 @@ namespace form_procoservice
             // 
             // panel1
             // 
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(10, 30, 10, 30);
             this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(10, 30, 10, 30);
             this.panel1.Size = new System.Drawing.Size(219, 120);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
@@ -199,6 +205,16 @@ namespace form_procoservice
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Size = new System.Drawing.Size(598, 421);
             this.panelChildForm.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::form_procoservice.Properties.Resources.logo_procoservice;
+            this.pictureBox1.Location = new System.Drawing.Point(7, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(206, 88);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Menu
             // 
@@ -216,6 +232,8 @@ namespace form_procoservice
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Menu_FormClosed);
             this.Load += new System.EventHandler(this.Menu_Load);
             this.panelSideMenu.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -232,5 +250,6 @@ namespace form_procoservice
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnMaterial;
         private System.Windows.Forms.Button btnConsultaMaterial;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

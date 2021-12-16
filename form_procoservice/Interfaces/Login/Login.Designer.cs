@@ -33,7 +33,6 @@ namespace form_procoservice
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblLogin = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -63,25 +62,12 @@ namespace form_procoservice
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(354, 142);
+            this.pictureBox1.Location = new System.Drawing.Point(337, 131);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(175, 107);
+            this.pictureBox1.Size = new System.Drawing.Size(201, 82);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // lblLogin
-            // 
-            this.lblLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lblLogin.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLogin.ForeColor = System.Drawing.Color.White;
-            this.lblLogin.Location = new System.Drawing.Point(395, 69);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(99, 45);
-            this.lblLogin.TabIndex = 3;
-            this.lblLogin.Text = "Login";
             // 
             // btnLogin
             // 
@@ -103,10 +89,10 @@ namespace form_procoservice
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.ClientSize = new System.Drawing.Size(909, 544);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.lblLogin);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.txtEmail);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(925, 583);
             this.MinimizeBox = false;
@@ -127,7 +113,6 @@ namespace form_procoservice
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.Button btnLogin;
     }
 }

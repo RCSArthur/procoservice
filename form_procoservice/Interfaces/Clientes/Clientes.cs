@@ -92,7 +92,7 @@ namespace form_procoservice.Interfaces.Clientes
 
         private async void dgDados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var dialogResult = MessageBox.Show("Deseja setar o cliente como excluído?", "Aviso", MessageBoxButtons.YesNo);
+            var dialogResult = MessageBox.Show("Deseja setar o cliente como excluído?", "Procoservice", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -113,7 +113,7 @@ namespace form_procoservice.Interfaces.Clientes
                             DocumentReference docref = _fireDb.Collection("clientes").Document(docsnap.Id);
                             await docref.UpdateAsync(data);
 
-                            MessageBox.Show("Cliente " + docs.nome + " excluído!");
+                            MessageBox.Show("Cliente " + docs.nome + " excluído!", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             dgDados.DataSource = null;
                             break;
                         }
@@ -121,7 +121,7 @@ namespace form_procoservice.Interfaces.Clientes
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro\n" + ex);
+                    MessageBox.Show("Erro\n" + ex, "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -197,7 +197,7 @@ namespace form_procoservice.Interfaces.Clientes
 
             catch(Exception ex)
             {
-                MessageBox.Show("Selecione o cliente que deseja alterar.");
+                MessageBox.Show("Selecione o cliente que deseja alterar.","Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -208,8 +208,15 @@ namespace form_procoservice.Interfaces.Clientes
 
         private async void deletar_selecionado()
         {
+            int i = dgDados.CurrentRow.Index;
+            int col = dgDados.CurrentCell.ColumnIndex;
+            String nomeCol = dgDados.CurrentCell.OwningColumn.Name;
+            object valor = "";
+            object valorGet = dgDados.Rows[i].Cells[0].Value;
+            object valorCpfCnpj = dgDados.Rows[i].Cells[1].Value;
 
-            var dialogResult = MessageBox.Show("Deseja excluir o serviço?", "Aviso", MessageBoxButtons.YesNo);
+
+            var dialogResult = MessageBox.Show("Deseja excluir o cliente "+ valorGet.ToString()+"?", "Procoservice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -221,13 +228,13 @@ namespace form_procoservice.Interfaces.Clientes
                     foreach (var docsnap in snapquery.Documents)
                     {
                         var docs = docsnap.ConvertTo<Cliente>();
-                        if (docsnap.Exists && docs.nome.Contains(txtNome.Text, StringComparison.OrdinalIgnoreCase))
+                        if (docsnap.Exists && docs.cpfCnpj.Contains(valorCpfCnpj.ToString(), StringComparison.OrdinalIgnoreCase))
                         {
 
                             var docref = database.Collection("clientes").Document(docsnap.Id);
                             await docref.DeleteAsync();
 
-                            MessageBox.Show("Cliente " + docs.nome + " excluído!");
+                            MessageBox.Show("Cliente " + valorGet.ToString() + " excluído!", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             dgDados.DataSource = null;
                             break;
                         }
@@ -235,7 +242,7 @@ namespace form_procoservice.Interfaces.Clientes
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro\n" + ex);
+                    MessageBox.Show("Erro\n" + ex, "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

@@ -29,6 +29,7 @@ namespace form_procoservice.Interfaces
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Alterarmaterial));
             this.lblVerificaNome = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -147,7 +148,10 @@ namespace form_procoservice.Interfaces
             this.Controls.Add(this.txtPreco);
             this.Controls.Add(this.txtQtd);
             this.Controls.Add(this.txtDescr);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Alterarmaterial";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alteração material";
             this.Load += new System.EventHandler(this.Alterarmaterial_Load);
             this.ResumeLayout(false);

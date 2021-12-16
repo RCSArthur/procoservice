@@ -39,7 +39,6 @@ namespace form_procoservice
                     qtd = Convert.ToDouble(txtQtd.Text, CultureInfo.InvariantCulture);
                     unit = Convert.ToDouble(txtPreco.Text, CultureInfo.InvariantCulture);
                     total = qtd * unit;
-                    MessageBox.Show(unit.ToString("00.00"), total.ToString("00.00"));
                     CollectionReference coll = database.Collection("materiais");
                     Dictionary<string, object> data = new()
                     {
@@ -50,12 +49,12 @@ namespace form_procoservice
                         { "precoTotal", total },
                     };
                     coll.AddAsync(data);
-                    MessageBox.Show("Material " + txtDescr.Text + " criado com sucesso!");
+                    MessageBox.Show("Material " + txtDescr.Text + " criado com sucesso!", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     (this).Limpar();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao cadastrar cliente!\n" + ex);
+                    MessageBox.Show("Erro ao cadastrar cliente!\n" + ex, "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -106,7 +105,7 @@ namespace form_procoservice
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro\n" + ex);
+                MessageBox.Show("Erro\n" + ex, "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

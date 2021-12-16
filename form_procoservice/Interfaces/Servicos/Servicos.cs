@@ -93,36 +93,57 @@ namespace form_procoservice
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            int resul = DateTime.Compare(dtInicio.Value, dtTermino.Value);
+            int pagMenorTermino = DateTime.Compare(dtEntrega.Value, dtTermino.Value);
 
-            if ((this).Validar())
+            if (resul > 0)
             {
-                try
+                MessageBox.Show("Data de inicio/termino inválida.", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            else if (pagMenorTermino < 0)
+            {
+                MessageBox.Show("Data de entrega inválida.", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            else if (!(dtPagamento.Value < dtEntrega.Value && dtPagamento.Value > dtInicio.Value))
+            {
+                MessageBox.Show("Data de pagamento inválida.", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+
+            else
+            {
+                if ((this).Validar())
                 {
-                    List<string> termsList = new List<string>();
-                    foreach (var item in chkListMaterial.CheckedItems)
-                        termsList.Add(((DataRowView)item)["descricao"].ToString());
-                    var result = String.Join(", ", termsList.ToArray());
-                    CollectionReference coll = database.Collection("servicos");
-                    Dictionary<string, object> data = new()
+                    try
                     {
-                        { "descricao", txtDescricao.Text },
-                        { "cliente", cmbCliente.Text },
-                        { "cpfCnpj", textBox1.Text },
-                        { "material", result},
-                        { "valor", double.Parse(txtValor.Text) },
-                        { "data_inicio", dtInicio.Value.ToString("dd/MM/yyyy") },
-                        { "data_termino", dtTermino.Value.ToString("dd/MM/yyyy") },
-                        { "prazo_entrada", dtEntrega.Value.ToString("dd/MM/yyyy") }, 
-                        { "prazo_pagamento", dtPagamento.Value.ToString("dd/MM/yyyy") },
-                        { "forma_pagamento", cmbFormaPagamento.Text },
-                    };
-                    coll.AddAsync(data);
-                    MessageBox.Show("Serviço cadastrado com sucesso!");
-                    (this).Limpar();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao cadastrar cliente!\n" + ex);
+                        List<string> termsList = new List<string>();
+                        foreach (var item in chkListMaterial.CheckedItems)
+                            termsList.Add(((DataRowView)item)["descricao"].ToString());
+                        var result = String.Join(", ", termsList.ToArray());
+                        CollectionReference coll = database.Collection("servicos");
+                        Dictionary<string, object> data = new()
+                        {
+                            { "descricao", txtDescricao.Text },
+                            { "cliente", cmbCliente.Text },
+                            { "cpfCnpj", textBox1.Text },
+                            { "material", result },
+                            { "valor", double.Parse(txtValor.Text) },
+                            { "data_inicio", dtInicio.Value.ToString("dd/MM/yyyy") },
+                            { "data_termino", dtTermino.Value.ToString("dd/MM/yyyy") },
+                            { "prazo_entrada", dtEntrega.Value.ToString("dd/MM/yyyy") },
+                            { "prazo_pagamento", dtPagamento.Value.ToString("dd/MM/yyyy") },
+                            { "forma_pagamento", cmbFormaPagamento.Text },
+                        };
+                        coll.AddAsync(data);
+                        MessageBox.Show("Serviço cadastrado com sucesso!", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        (this).Limpar();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao cadastrar cliente!\n" + ex, "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -235,12 +256,12 @@ namespace form_procoservice
                     textBox1.Text = docs.cpfCnpj.ToString();
                 }
             }
-            
+
         }
-    private void cmbCliente_Leave(object sender, EventArgs e)
-            {
-                Listar_CpfCnpj();
-            }
+        private void cmbCliente_Leave(object sender, EventArgs e)
+        {
+            Listar_CpfCnpj();
+        }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -262,5 +283,5 @@ namespace form_procoservice
 
         }
     }
-    
+
 }

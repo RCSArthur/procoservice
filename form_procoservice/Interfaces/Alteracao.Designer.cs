@@ -318,6 +318,7 @@ namespace form_procoservice.Interfaces
             this.Controls.Add(this.lblTelefone);
             this.Controls.Add(this.lblNome);
             this.Name = "Alteracao";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alteração cliente";
             this.Load += new System.EventHandler(this.Alteracao_Load);
             this.gboxTipoPessoa.ResumeLayout(false);

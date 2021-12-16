@@ -49,7 +49,7 @@ namespace form_procoservice.Utils
 
         private static void ExibirErro(Control item)
         {
-            MessageBox.Show("O campo " + item.Name + " é de preenchimento obrigatório!");
+            MessageBox.Show("O campo " + item.Name + " é de preenchimento obrigatório!", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             item.Focus();
         }
     }

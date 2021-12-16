@@ -29,6 +29,7 @@ namespace form_procoservice
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Materiais));
             this.txtDescr = new System.Windows.Forms.TextBox();
             this.txtQtd = new System.Windows.Forms.TextBox();
             this.txtPreco = new System.Windows.Forms.TextBox();
@@ -125,6 +126,7 @@ namespace form_procoservice
             this.Controls.Add(this.txtPreco);
             this.Controls.Add(this.txtQtd);
             this.Controls.Add(this.txtDescr);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Materiais";
             this.ShowIcon = false;
             this.Text = "Material";

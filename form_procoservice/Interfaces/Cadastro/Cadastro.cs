@@ -36,7 +36,7 @@ namespace form_procoservice
 
                     if (ChecaServidor.StatusCode != HttpStatusCode.OK)
                     {
-                        MessageBox.Show("Servidor indisponível");
+                        MessageBox.Show("Servidor indisponível", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
 
@@ -59,7 +59,7 @@ namespace form_procoservice
                                     string[] valor = substring.Split(":".ToCharArray());
                                     if (valor[0] == "  erro")
                                     {
-                                        MessageBox.Show("CEP não encontrado");
+                                        MessageBox.Show("CEP não encontrado", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                         mtxtCEP.Focus();
                                         return;
                                     }
@@ -108,7 +108,7 @@ namespace form_procoservice
             }
             catch (System.Exception e)
             {
-                MessageBox.Show("Erro ao buscar CEP!\n" + e);
+                MessageBox.Show("Erro ao buscar CEP!\n" + e, "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -138,7 +138,7 @@ namespace form_procoservice
                         { "numero", txtNumero.Text }
                     };
                     coll.AddAsync(data);
-                    MessageBox.Show("Cliente " + txtNome.Text + " criado com sucesso!");
+                    MessageBox.Show("Cliente " + txtNome.Text + " criado com sucesso!", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     (this).Limpar();
                 }
                 catch (Exception ex)
@@ -201,7 +201,7 @@ namespace form_procoservice
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro\n" + ex);
+                MessageBox.Show("Erro\n" + ex, "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

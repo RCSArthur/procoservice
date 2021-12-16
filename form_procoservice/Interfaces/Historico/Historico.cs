@@ -59,7 +59,7 @@ namespace form_procoservice
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro\n" + ex);
+                MessageBox.Show("Erro\n" + ex, "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return null;
         }
@@ -77,7 +77,15 @@ namespace form_procoservice
         private async void deletar_selecionado()
         {
 
-            var dialogResult = MessageBox.Show("Deseja excluir o serviço?", "Aviso", MessageBoxButtons.YesNo);
+            int i = dgDados.CurrentRow.Index;
+            int col = dgDados.CurrentCell.ColumnIndex;
+            String nomeCol = dgDados.CurrentCell.OwningColumn.Name;
+            object valor = "";
+            object valorGet = dgDados.Rows[i].Cells[0].Value;
+            object valorCliente = dgDados.Rows[i].Cells[1].Value;
+
+
+            var dialogResult = MessageBox.Show("Deseja excluir o serviço "+valorGet.ToString()+ " do cliente "+ valorCliente.ToString()+"?", "Procoserivce", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -89,13 +97,13 @@ namespace form_procoservice
                     foreach (var docsnap in snapquery.Documents)
                     {
                         var docs = docsnap.ConvertTo<Servico>();
-                        if (docsnap.Exists && docs.descricao.Contains(txtNome.Text, StringComparison.OrdinalIgnoreCase))
+                        if (docsnap.Exists && docs.descricao.Contains(valorGet.ToString(), StringComparison.OrdinalIgnoreCase))
                         {
 
                             var docref = _database.Collection("servicos").Document(docsnap.Id);
                             await docref.DeleteAsync();
 
-                            MessageBox.Show("Servico " + docs.descricao + " excluído!");
+                            MessageBox.Show("Servico " + valorGet.ToString() + " excluído!", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             dgDados.DataSource = null;
                             break;
                         }
@@ -103,7 +111,7 @@ namespace form_procoservice
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro\n" + ex);
+                    MessageBox.Show("Erro\n" + ex, "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -165,51 +173,6 @@ namespace form_procoservice
 
 
 
-        //async void Update_especifico()
-        //{
-        //    int i = dgDados.CurrentRow.Index;
-        //    int col = dgDados.CurrentCell.ColumnIndex;
-        //    string nomeCol = dgDados.CurrentCell.OwningColumn.Name;
-        //    object valorGet = dgDados.Rows[i].Cells[0].Value;
-        //    if (!nomeCol.Equals("descricao"))
-        //    {
-        //        valor = int.Parse(valor.ToString());
-        //    }
-        //    object documento = "";
-
-        //    Query cityque = _database.Collection("servicos");
-        //    QuerySnapshot snape = await cityque.GetSnapshotAsync();
-
-        //    try
-        //    {
-        //        foreach (DocumentSnapshot docsnap in snape.Documents)
-        //        {
-        //            Servico docs = docsnap.ConvertTo<Servico>();
-        //            if (valorGet.ToString().Equals(docs.descricao, StringComparison.OrdinalIgnoreCase))
-        //            {
-        //                documento = docsnap.Id;
-        //            }
-        //        }
-
-        //        DocumentReference docref = _database.Collection("servicos").Document(documento.ToString());
-        //        Dictionary<string, object> data = new Dictionary<string, object>()
-        //        {
-        //            { nomeCol,  valor }
-        //        };
-
-        //        DocumentSnapshot snap = await docref.GetSnapshotAsync();
-        //        if (snap.Exists)
-        //        {
-        //            await docref.UpdateAsync(data);
-        //            txtAlterar.Clear();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Erro\n" + ex);
-        //    }
-
-        //}
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 

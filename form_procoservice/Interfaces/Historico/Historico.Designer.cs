@@ -29,6 +29,7 @@ namespace form_procoservice
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Historico));
             this.btnAlterar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dgDados = new System.Windows.Forms.DataGridView();
@@ -118,6 +119,7 @@ namespace form_procoservice
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Historico";
             this.Text = "Historico";

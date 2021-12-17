@@ -42,11 +42,11 @@ namespace form_procoservice
                     CollectionReference coll = database.Collection("materiais");
                     Dictionary<string, object> data = new()
                     {
-                        
+
                         { "descricao", txtDescr.Text },
                         { "quantidade", int.Parse(txtQtd.Text) },
                         { "precoUnitario", unit },
-                        { "precoTotal", total },
+                        { "precoTotal", Math.Round(total, 2) },
                     };
                     coll.AddAsync(data);
                     MessageBox.Show("Material " + txtDescr.Text + " criado com sucesso!", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Information);

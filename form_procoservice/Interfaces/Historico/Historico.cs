@@ -186,7 +186,12 @@ namespace form_procoservice
 
         private void dgDados_Click(object sender, EventArgs e)
         {
+        }
+
+        private void dgDados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
             btnAlterar.Enabled = true;
+
         }
     }
 }

@@ -76,6 +76,7 @@ namespace form_procoservice
             this.dgDados.RowTemplate.Height = 25;
             this.dgDados.Size = new System.Drawing.Size(504, 300);
             this.dgDados.TabIndex = 16;
+            this.dgDados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDados_CellContentClick);
             this.dgDados.Click += new System.EventHandler(this.dgDados_Click);
             // 
             // txtNome

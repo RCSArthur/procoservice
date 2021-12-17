@@ -56,14 +56,14 @@ namespace form_procoservice.Interfaces.Clientes
             clientes.Columns.Add("cidade");
             clientes.Columns.Add("Uf");
             clientes.Columns.Add("cep");
-            clientes.Columns.Add("excluido");
+            clientes.Columns.Add("ClienteAtivo");
 
             foreach (DocumentSnapshot docsnap in snapquery.Documents)
             {
                 Cliente docs = docsnap.ConvertTo<Cliente>();
                 if (docsnap.Exists && docs.nome.Contains(txtNome.Text, StringComparison.OrdinalIgnoreCase))
                 {
-                    clientes.Rows.Add(docs.nome, docs.cpfCnpj, docs.telefone, docs.rua, docs.numero, docs.bairro, docs.cidade, docs.UF, docs.cep, docs.isExcluido);
+                    clientes.Rows.Add(docs.nome, docs.cpfCnpj, docs.telefone, docs.rua, docs.numero, docs.bairro, docs.cidade, docs.UF, docs.cep, docs.ClienteAtivo);
                 }
             }
             //Retorna atribuição de dados do objeto clientes(DataTable) para o dgDados(DataGridView)
@@ -92,28 +92,33 @@ namespace form_procoservice.Interfaces.Clientes
 
         private async void dgDados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var dialogResult = MessageBox.Show("Deseja setar o cliente como excluído?", "Procoservice", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-
+            var dialogResult = MessageBox.Show("Deseja atribuir para que o cliente seja inativo?", "Procoservice", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            int i = dgDados.CurrentRow.Index;
+            int col = dgDados.CurrentCell.ColumnIndex;
+            String nomeCol = dgDados.CurrentCell.OwningColumn.Name;
+            object valor = "";
+            object valorGet = dgDados.Rows[i].Cells[1].Value;
+            object documento = "";
             if (dialogResult == DialogResult.Yes)
             {
                 try
                 {
-                    Query query = _fireDb.Collection("clientes").WhereEqualTo("isExcluido", false);
+                    Query query = _fireDb.Collection("clientes");
                     QuerySnapshot snapquery = await query.GetSnapshotAsync();
                     string cpfCnpj = dgDados.Rows[e.RowIndex].Cells["cpfCnpj"].Value.ToString();
                     foreach (DocumentSnapshot docsnap in snapquery.Documents)
                     {
                         Cliente docs = docsnap.ConvertTo<Cliente>();
-                        if (docsnap.Exists && docs.cpfCnpj.Contains(cpfCnpj, StringComparison.OrdinalIgnoreCase))
+                        if (docsnap.Exists && docs.cpfCnpj.Contains(valorGet.ToString(), StringComparison.OrdinalIgnoreCase))
                         {
                             Dictionary<string, object> data = new Dictionary<string, object>()
                             {
-                                { "isExcluido", true }
+                                { "ClienteAtivo", "Falso" }
                             };
                             DocumentReference docref = _fireDb.Collection("clientes").Document(docsnap.Id);
                             await docref.UpdateAsync(data);
 
-                            MessageBox.Show("Cliente " + docs.nome + " excluído!", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Cliente " + docs.nome + " inativado!", "Procoservice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             dgDados.DataSource = null;
                             break;
                         }

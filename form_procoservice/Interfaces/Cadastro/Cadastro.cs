@@ -129,7 +129,7 @@ namespace form_procoservice
                         { "nome", txtNome.Text },
                         { "telefone", mtxtTelefone.Text },
                         { "cpfCnpj", mtxtCpfCnpj.Text },
-                        { "isExcluido", false },
+                        { "ClienteAtivo", "verdadeiro" },
                         { "cep", mtxtCEP.Text },
                         { "rua", txtRua.Text },
                         { "bairro", txtBairro.Text },

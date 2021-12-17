@@ -17,7 +17,7 @@ namespace form_procoservice
         public string cpfCnpj { get; set; }
 
         [FirestoreProperty]
-        public bool isExcluido { get; set; }
+        public string ClienteAtivo { get; set; }
 
         [FirestoreProperty]
         public string UF { get; set; }
